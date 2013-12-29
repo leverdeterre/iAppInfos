@@ -49,7 +49,7 @@ Your datasource can optionally implement desiredKeysForAppVersionManager method 
 ```
 ## WS / Token configuration  
 
-Your datasource can optionally implement this 2 methods to help the AppInformations Manager to find this 2 values.
+Your datasource can optionally implements this 2 methods to help the Manager to find this 2 values.
 
 + getWSConfigurationForAppVersionManager
 + getpushTokenForAppVersionManager
