@@ -1,5 +1,5 @@
 //
-//  MobileProvisionning.m
+//  JMOMobileProvisionning.m
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
@@ -95,5 +95,6 @@
 {
     return self.summary.description;
 }
+
 
 @end

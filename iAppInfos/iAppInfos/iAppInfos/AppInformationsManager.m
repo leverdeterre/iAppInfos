@@ -1,5 +1,5 @@
 //
-//  AppVersionManager.m
+//  AppInformationsManager.m
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
@@ -40,15 +40,22 @@
     NSMutableString *str = [NSMutableString new];
     [str appendString:@"\n"];
     
+    JMOMobileProvisionning *mobileProvi = nil;
+    [str appendFormat:@"\n\t#Global infos\n"];
     for (NSString *key in keys) {
         id info = [[AppInformationsManager sharedManager] infoForKey:key];
         if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
-            JMOMobileProvisionning *mobileProvi = (JMOMobileProvisionning *)info;
-            [str appendFormat:@"\t%@\t%@\n", key, mobileProvi.teamName ];
+             mobileProvi = (JMOMobileProvisionning *)info;
         }
         else {
             [str appendFormat:@"\t%@\t%@\n", key, info];
         }
+    }
+    
+    if (nil != mobileProvi) {
+        [str appendFormat:@"\n\t#MobileProvisionning infos\n"];
+        [str appendFormat:@"\t%@\n", mobileProvi.teamName ];
+        [str appendFormat:@"\t%@\n", mobileProvi];
     }
     
     return str;

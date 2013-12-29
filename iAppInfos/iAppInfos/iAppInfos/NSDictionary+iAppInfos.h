@@ -10,6 +10,6 @@
 
 @interface NSDictionary (iAppInfos)
 
-+(NSDictionary *)dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning;
++ (NSDictionary *)dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning;
 
 @end

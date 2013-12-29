@@ -1,5 +1,5 @@
 //
-//  AppVersionManager.h
+//  AppInformationsManager.h
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
@@ -38,6 +38,5 @@
 - (void)addCustomValue:(NSString *)value forCustomKey:(NSString *)key;
 - (id)infoForKey:(NSString *)key;
 - (NSString *)htmlDescriptionWithKeys:(NSArray *)keys;
-
 
 @end

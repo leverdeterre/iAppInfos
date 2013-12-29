@@ -1,5 +1,5 @@
 //
-//  MobileProvisionning.h
+//  JMOMobileProvisionning.h
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
