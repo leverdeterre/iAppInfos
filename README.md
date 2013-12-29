@@ -6,10 +6,10 @@ iAppInfos allows a easy access to ALL important App informations.
 ![Image](demo.png)
 
 # Device infos
-*   iOS Version of your device
-*   Device model of your device
-*   Free Disk Space on your device
-*   Battery Level of your device
+*   iOS Version 
+*   Device model
+*   Free Disk Space
+*   Battery Level 
 
 # Apps infos
 *   Targeted iOS Version
@@ -18,7 +18,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   SDK use for compilation
 *   Mobile provisionning push information (enable or not),
 *   Mobile provisionning dev information (development / production),
-*   Mobile provisionning UDID informations (list of your provisioned devices),
+*   Mobile provisionning UDID list (provisioned devices),
 
 # Optionnal keys
 *   WS Configuration
