@@ -30,7 +30,7 @@
     [AppInformationsManager sharedManager].datasource = self;
     [[AppInformationsManager sharedManager] addCustomValue:@"CustomValue" forCustomKey:CustomKey1];
     
-    self.properties = [[AppInformationsManager sharedManager].datasource desiredAppVersionManagerKeys];
+    self.properties = [[AppInformationsManager sharedManager] observedProperties];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,11 +93,13 @@
 
 #pragma mark AppInformationsManagerDatasource
 
+/*
 - (NSArray *)desiredAppVersionManagerKeys
 {
     return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,
              CustomKey1];
 }
+*/
 
 - (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager
 {
@@ -107,6 +109,8 @@
 
 - (NSString *)getpushTokenForAppVersionManager:(AppInformationsManager *)manager
 {
+    NSLog(@"Return WS host ? or something to identified your WS configuration");
+
     return @"";
 }
 @end
