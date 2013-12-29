@@ -77,6 +77,7 @@
 		C29315F81866446B005B65AF /* JMOCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOCell.h; sourceTree = "<group>"; };
 		C29315FC1866448F005B65AF /* AppInformationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInformationsManager.m; sourceTree = "<group>"; };
 		C29315FD1866448F005B65AF /* AppInformationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInformationsManager.h; sourceTree = "<group>"; };
+		C29315FF18709D4D005B65AF /* JMOLogMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMOLogMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +187,7 @@
 		C29315E61866445D005B65AF /* iAppInfos */ = {
 			isa = PBXGroup;
 			children = (
+				C29315FF18709D4D005B65AF /* JMOLogMacro.h */,
 				C29315FD1866448F005B65AF /* AppInformationsManager.h */,
 				C29315FC1866448F005B65AF /* AppInformationsManager.m */,
 				C29315E71866445D005B65AF /* JMOMobileProvisionning.h */,

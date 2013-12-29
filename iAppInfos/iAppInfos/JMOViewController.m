@@ -8,7 +8,9 @@
 
 #import "JMOViewController.h"
 #import "JMOViewControllerProvisioningDetails.h"
+
 #import "JMOCell.h"
+#import "JMOLogMacro.h"
 
 #import "AppInformationsManager.h"
 
@@ -28,15 +30,16 @@
     self.title = @"iAppInfos";
     
     [AppInformationsManager sharedManager].datasource = self;
-    [[AppInformationsManager sharedManager] addCustomValue:@"CustomValue" forCustomKey:CustomKey1];
+    [[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
     
     self.properties = [[AppInformationsManager sharedManager] observedProperties];
+    self.tableView.dataSource = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"%@", [AppInformationsManager sharedManager]);
+    //JMOLog(@"%@", [AppInformationsManager sharedManager]);
 }
 
 #pragma mark UITableViewDataSource
@@ -58,11 +61,11 @@
     if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
         if (nil == info) {
             cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.labelInfo.text = @"no info ... ";
+            cell.labelInfo.text = @"No info ...";
         }
         else {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.labelInfo.text = @"Lot's of info";
+            cell.labelInfo.text = @"Lot's of infos :)";
         }
     }
     else {
@@ -91,26 +94,24 @@
     }
 }
 
-#pragma mark AppInformationsManagerDatasource
+#pragma mark - AppInformationsManagerDatasource
 
-/*
 - (NSArray *)desiredAppVersionManagerKeys
 {
-    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,
+    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration,
              CustomKey1];
 }
-*/
 
 - (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager
 {
-    NSLog(@"Return WS host ? or something to identified your WS configuration");
-    return @"WS integration";
+    JMOLog(@"Return WS host ? or something to identified your WS configuration");
+    return @"No info ...";
 }
 
 - (NSString *)getpushTokenForAppVersionManager:(AppInformationsManager *)manager
 {
-    NSLog(@"Return WS host ? or something to identified your WS configuration");
-
-    return @"";
+    JMOLog(@"Are you storing the token somewhere?");
+    return @"No info ...";
 }
+
 @end

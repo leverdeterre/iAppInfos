@@ -69,7 +69,7 @@
         return [self.datasource getWSConfigurationForAppVersionManager:self];
     }
     
-    return @"";
+    return @"No info ...";
 }
 
 - (NSString *)pushToken
@@ -78,7 +78,7 @@
         return [self.datasource getpushTokenForAppVersionManager:self];
     }
     
-    return @"";
+    return @"No info ...";
 }
 
 #pragma mark Private methods
@@ -269,7 +269,7 @@
         return [self.datasource desiredAppVersionManagerKeys];
     }
     
-    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken];
+    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
 }
 
 @end
