@@ -6,10 +6,10 @@ iAppInfos allows a easy access to ALL important App informations.
 ![Image](demo.png)
 
 # Device infos
-*   iOS Version of your device
-*   Device model of your device
-*   Free Disk Space on your device
-*   Battery Level of your device
+*   iOS Version 
+*   Device model
+*   Free Disk Space
+*   Battery Level 
 
 # Apps infos
 *   Targeted iOS Version
@@ -18,22 +18,22 @@ iAppInfos allows a easy access to ALL important App informations.
 *   SDK use for compilation
 *   Mobile provisionning push information (enable or not),
 *   Mobile provisionning dev information (development / production),
-*   Mobile provisionning UDID informations (list of your provisioned devices),
+*   Mobile provisionning UDID list (provisioned devices),
 
-# Custom keys (pre-configure with datasource)
+# Optionnal keys
 *   WS Configuration
 *   Token push
 
 # Configuration
 
-To configure iAppInfos, you can set a custom the datasource
+To configure iAppInfos, you can set a custom datasource
 ```objective-c
-	[AppInformationsManager sharedManager].datasource = self;
+[AppInformationsManager sharedManager].datasource = self;
 ```
 ## Add customs key/values
 
 ```objective-c
-    [[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
 ```
 
 ## Configure interest keys
@@ -49,7 +49,7 @@ Your datasource can optionally implement desiredKeysForAppVersionManager method 
 ```
 ## WS / Token configuration  
 
-Your datasource can optionally implement this 2 methods to help the AppInformations Manager to find this 2 values.
+Your datasource can optionally implements this 2 methods to help the Manager to find this 2 values.
 
 + getWSConfigurationForAppVersionManager
 + getpushTokenForAppVersionManager
