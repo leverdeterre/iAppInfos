@@ -23,7 +23,7 @@
 @class AppInformationsManager;
 @protocol AppInformationsManagerDatasource <NSObject>
 @optional
-- (NSArray *)desiredAppVersionManagerKeys;
+- (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager;
 - (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager;
 - (NSString *)getpushTokenForAppVersionManager:(AppInformationsManager *)manager;
 @end
