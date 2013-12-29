@@ -265,8 +265,8 @@
 
 - (NSArray*)observedProperties
 {
-    if ([self.datasource respondsToSelector:@selector(desiredAppVersionManagerKeys)]) {
-        return [self.datasource desiredAppVersionManagerKeys];
+    if ([self.datasource respondsToSelector:@selector(desiredKeysForAppVersionManager:)]) {
+        return [self.datasource desiredKeysForAppVersionManager:self];
     }
     
     return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
