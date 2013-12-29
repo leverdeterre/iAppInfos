@@ -3,6 +3,8 @@ iAppInfos
 
 iAppInfos allows a easy access to ALL important App informations.  
 
+![Image](demo.png)
+
 # Device infos
 *   iOS Version of your device
 *   Device model of your device
@@ -21,8 +23,6 @@ iAppInfos allows a easy access to ALL important App informations.
 # Custom keys (pre-configure with datasource)
 *   WS Configuration
 *   Token push
-
-![Image](demo.png)
 
 # Configuration
 
