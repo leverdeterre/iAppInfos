@@ -96,7 +96,7 @@
 
 #pragma mark - AppInformationsManagerDatasource
 
-- (NSArray *)desiredAppVersionManagerKeys
+- (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager
 {
     return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration,
              CustomKey1];
@@ -104,7 +104,7 @@
 
 - (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager
 {
-    JMOLog(@"Return WS host ? or something to identified your WS configuration");
+    JMOLog(@"Return WS url ? or something to identified your WS configuration");
     return @"No info ...";
 }
 
