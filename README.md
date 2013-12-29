@@ -20,7 +20,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Mobile provisionning dev information (development / production),
 *   Mobile provisionning UDID informations (list of your provisioned devices),
 
-# Optionnal keys (pre-configure with datasource)
+# Optionnal keys
 *   WS Configuration
 *   Token push
 
@@ -28,12 +28,12 @@ iAppInfos allows a easy access to ALL important App informations.
 
 To configure iAppInfos, you can set a custom datasource
 ```objective-c
-	[AppInformationsManager sharedManager].datasource = self;
+[AppInformationsManager sharedManager].datasource = self;
 ```
 ## Add customs key/values
 
 ```objective-c
-	[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
 ```
 
 ## Configure interest keys
