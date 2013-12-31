@@ -11,7 +11,7 @@
 
 @implementation NSDictionary (MobileProvisionningParser)
 
-+ (NSDictionary *)dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning
++ (NSDictionary *)jmo_dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning
 {
     NSMutableDictionary *dictionary =  [NSMutableDictionary new];
     NSArray* lines = [RawMobileProvisionning componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];

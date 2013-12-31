@@ -110,12 +110,12 @@
 
 - (NSString *)yourDeviceModel
 {
-    return [UIDevice modelName];
+    return [UIDevice jmo_modelName];
 }
 
 - (NSString *)compilationSDK
 {
-    return [UIApplication iOSSDKVersion];
+    return [UIApplication jmo_iOSSDKVersion];
 }
 
 - (NSString *)version
@@ -177,7 +177,7 @@
                 NSRange range = NSMakeRange(range1.location, range2.location + range2.length - range1.location);
                 result = [profileText substringWithRange:range];
                 
-                NSDictionary *dict = [NSDictionary dictionaryWithMobileProvisioningString:result];
+                NSDictionary *dict = [NSDictionary jmo_dictionaryWithMobileProvisioningString:result];
                 JMOMobileProvisionning *provisionningObj = [[JMOMobileProvisionning alloc] initWithDictionary:dict];
                 return provisionningObj;
             }

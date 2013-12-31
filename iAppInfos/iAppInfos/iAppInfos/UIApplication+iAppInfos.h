@@ -10,6 +10,6 @@
 
 @interface UIApplication (iAppInfos)
 
-+ (NSString *)iOSSDKVersion;
++ (NSString *)jmo_iOSSDKVersion;
 
 @end
