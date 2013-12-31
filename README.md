@@ -30,11 +30,6 @@ To configure iAppInfos, you can set a custom datasource
 ```objective-c
 [AppInformationsManager sharedManager].datasource = self;
 ```
-## Add customs key/values
-
-```objective-c
-[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
-```
 
 ## Configure interest keys
 
@@ -56,6 +51,34 @@ Your datasource can optionally implements this 2 methods to help the Manager to 
 
 # Usage in the real life 
 
+# Present all informations
+
 See the sample, a very classic TableView Controller (JMOViewController)
+
+# Get informations one by one
+
+```objective-c
+[[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
+```
+
+##Defined keys are :
+```objective-c
+AppVersionManagerKeyTargetedVersion             @"MinTargetedVersion"
+AppVersionManagerKeyYouriOSVersion              @"iOSVersion"
+AppVersionManagerKeyYourDeviceModel             @"DeviceModel"
+AppVersionManagerKeyCompilationSDK              @"SDKUseForCompilation"
+AppVersionManagerKeyWSConfiguration             @"WSConfiguration"  //From Datasource
+AppVersionManagerKeyCFBundleVersion             @"Version"
+AppVersionManagerKeyCFBundleShortVersionString  @"ShortVersionString"
+AppVersionManagerKeyFreeDiskSpace               @"FreeDiskSpace"
+AppVersionManagerKeyBatteryLevel                @"BatteryLevel"
+AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
+AppVersionManagerKeyPushToken                   @"PushToken"  //From Datasource
+```
+##Customs key/values
+###Add a custom value
+```objective-c
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
+```
 
 
