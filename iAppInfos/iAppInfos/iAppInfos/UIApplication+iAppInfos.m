@@ -11,7 +11,7 @@
 
 @implementation UIApplication (iAppInfos)
 
-+ (NSString *)iOSSDKVersion
++ (NSString *)jmo_iOSSDKVersion
 {
 #if defined(__IPHONE_7_0)
 //#warning "SDK7"
