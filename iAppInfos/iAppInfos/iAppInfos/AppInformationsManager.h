@@ -19,6 +19,7 @@
 #define AppVersionManagerKeyBatteryLevel                @"BatteryLevel"
 #define AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
 #define AppVersionManagerKeyPushToken                   @"PushToken" //From Datasource
+#define AppVersionManagerKeyFreeMemory                  @"FreeMemory"
 
 @class AppInformationsManager;
 @protocol AppInformationsManagerDatasource <NSObject>

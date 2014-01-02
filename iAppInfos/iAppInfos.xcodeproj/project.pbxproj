@@ -529,6 +529,7 @@
 				C29315E21866438A005B65AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C29315E31866438A005B65AF /* Build configuration list for PBXNativeTarget "iAppInfosTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +538,7 @@
 				C29315E51866438A005B65AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

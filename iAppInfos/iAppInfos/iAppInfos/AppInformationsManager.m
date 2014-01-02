@@ -13,6 +13,8 @@
 #import "NSDictionary+iAppInfos.h"
 #import "JMOMobileProvisionning.h"
 
+#import "mach/mach.h"
+
 @interface AppInformationsManager ()
 @property (strong, nonatomic) NSMutableDictionary *customValues;
 @end
@@ -188,6 +190,26 @@
     return nil;
 }
 
+vm_size_t machFreeMemory(void)
+{
+    mach_port_t host_port = mach_host_self();
+    mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    vm_size_t pagesize;
+    vm_statistics_data_t vm_stat;
+    
+    host_page_size(host_port, &pagesize);
+    (void) host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
+    return vm_stat.free_count * pagesize;
+}
+
+- (NSString *)freeMemorySpace
+{
+    unsigned long freeSpace = machFreeMemory();
+    unsigned long long totalMemory = [[NSProcessInfo processInfo] physicalMemory];
+    CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
+    return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
+}
+
 #pragma mark - Public 
 
 - (id)infoForKey:(NSString *)key
@@ -229,6 +251,9 @@
     else if ([key isEqualToString:AppVersionManagerKeyPushToken]) {
         return [self pushToken];
     }
+    else if ([key isEqualToString:AppVersionManagerKeyFreeMemory]) {
+        return [self freeMemorySpace];
+    }
     else {
         id obj = [self.customValues objectForKey:key];
         if (nil != obj) {
@@ -269,7 +294,7 @@
         return [self.datasource desiredKeysForAppVersionManager:self];
     }
     
-    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
+    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
 }
 
 @end
