@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C219471618761679008A48D5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C219471518761679008A48D5 /* CoreTelephony.framework */; };
 		C29315B21866438A005B65AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B11866438A005B65AF /* Foundation.framework */; };
 		C29315B41866438A005B65AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B31866438A005B65AF /* CoreGraphics.framework */; };
 		C29315B61866438A005B65AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B51866438A005B65AF /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C219471518761679008A48D5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C29315AE1866438A005B65AF /* iAppInfos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAppInfos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29315B11866438A005B65AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C29315B31866438A005B65AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C219471618761679008A48D5 /* CoreTelephony.framework in Frameworks */,
 				C29315B41866438A005B65AF /* CoreGraphics.framework in Frameworks */,
 				C29315B61866438A005B65AF /* UIKit.framework in Frameworks */,
 				C29315B21866438A005B65AF /* Foundation.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		C29315B01866438A005B65AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C219471518761679008A48D5 /* CoreTelephony.framework */,
 				C29315E61866445D005B65AF /* iAppInfos */,
 				C29315B11866438A005B65AF /* Foundation.framework */,
 				C29315B31866438A005B65AF /* CoreGraphics.framework */,

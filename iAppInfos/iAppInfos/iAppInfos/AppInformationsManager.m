@@ -14,6 +14,8 @@
 #import "JMOMobileProvisionning.h"
 
 #import "mach/mach.h"
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 
 @interface AppInformationsManager ()
 @property (strong, nonatomic) NSMutableDictionary *customValues;
@@ -210,6 +212,12 @@ vm_size_t machFreeMemory(void)
     return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
 }
 
+- (NSString *)operator {
+    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [netinfo subscriberCellularProvider];
+    return [carrier carrierName];
+}
+
 #pragma mark - Public 
 
 - (id)infoForKey:(NSString *)key
@@ -253,6 +261,9 @@ vm_size_t machFreeMemory(void)
     }
     else if ([key isEqualToString:AppVersionManagerKeyFreeMemory]) {
         return [self freeMemorySpace];
+    }
+    else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
+        return [self operator];
     }
     else {
         id obj = [self.customValues objectForKey:key];

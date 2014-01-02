@@ -20,6 +20,7 @@
 #define AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
 #define AppVersionManagerKeyPushToken                   @"PushToken" //From Datasource
 #define AppVersionManagerKeyFreeMemory                  @"FreeMemory"
+#define AppVersionManagerKeyOperator                    @"Operator"
 
 @class AppInformationsManager;
 @protocol AppInformationsManagerDatasource <NSObject>
