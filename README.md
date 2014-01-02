@@ -39,7 +39,7 @@ Your datasource can optionally implement desiredKeysForAppVersionManager method 
 
 - (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager
 {
-    return @[AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
+    return @[AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel, AppVersionManagerKeyFreeMemory, AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
 }
 ```
 ## WS / Token configuration  
@@ -74,6 +74,8 @@ AppVersionManagerKeyFreeDiskSpace               @"FreeDiskSpace"
 AppVersionManagerKeyBatteryLevel                @"BatteryLevel"
 AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
 AppVersionManagerKeyPushToken                   @"PushToken"  //From Datasource
+AppVersionManagerKeyFreeMemory                  @"FreeMemory"
+
 ```
 ##Customs key/values
 ###Add a custom value
