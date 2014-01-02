@@ -49,6 +49,8 @@ extern NSString * const UIDeviceModeliPadMiniRetina2G_Cellular;
 extern NSString * const UIDeviceModeliPadAir_Wifi;
 extern NSString * const UIDeviceModeliPadAir_Cellular;
 
+extern NSString * const UIDeviceModelSimulatorI386;
+extern NSString * const UIDeviceModelSimulatorX86_64;
 extern NSString * const UIDeviceModelSimulator;
 
 typedef NS_ENUM(NSInteger, UIDeviceModelType) {
