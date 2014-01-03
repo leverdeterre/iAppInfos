@@ -112,61 +112,23 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     
     if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
 
-    if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulatorI386;
-    if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulatorX86_64;
-    return UIDeviceModelSimulator;
+    if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
+    if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulator;
+    
+    return systInfo;
 }
 
 
 + (UIDeviceModelType)jmo_deviceModelType {
     NSString *modelName = [self jmo_modelName];
-    
-    NSArray *iphones = @[UIDeviceModeliPhone1G,
-                         UIDeviceModeliPhone3G,
-                         UIDeviceModeliPhone3GS,
-                         UIDeviceModeliPhone4,
-                         UIDeviceModelVerizoniPhone4,
-                         UIDeviceModeliPhone4S,
-                         UIDeviceModeliPhone5_GSM,
-                         UIDeviceModeliPhone5_GSM_CDMA,
-                         UIDeviceModeliPhone5C_GSM,
-                         UIDeviceModeliPhone5C_Global,
-                         UIDeviceModeliPhone5S_GSM,
-                         UIDeviceModeliPhone5S_Global];
-    if ([iphones containsObject:modelName]) {
+
+    if ([modelName rangeOfString:@"iPhone"].location != NSNotFound) {
         return UIDeviceModelTypeiPhone;
     }
-    
-    
-    NSArray *ipods = @[UIDeviceModeliPodTouch1G,
-                       UIDeviceModeliPodTouch2G,
-                       UIDeviceModeliPodTouch3G,
-                       UIDeviceModeliPodTouch4G,
-                       UIDeviceModeliPodTouch5G];
-    if ([ipods containsObject:modelName]) {
+    else if ([modelName rangeOfString:@"iPod"].location != NSNotFound) {
         return UIDeviceModelTypeiPod;
     }
-    
-         
-    NSArray *ipads = @[UIDeviceModeliPad,
-                       UIDeviceModeliPad2_Wifi,
-                       UIDeviceModeliPad2_GSM,
-                       UIDeviceModeliPad2_CDMA,
-                       UIDeviceModeliPad2,
-                       UIDeviceModeliPad3G_Wifi,
-                       UIDeviceModeliPad3G_4G,
-                       UIDeviceModeliPad3G_4G,
-                       UIDeviceModeliPad4G_Wifi,
-                       UIDeviceModeliPad4G_GSM,
-                       UIDeviceModeliPad4G_GSM_CDMA,
-                       UIDeviceModeliPadMini1G_Wifi,
-                       UIDeviceModeliPadMini1G_GSM,
-                       UIDeviceModeliPadMini1G_GSM_CDMA,
-                       UIDeviceModeliPadMiniRetina2G_Wifi,
-                       UIDeviceModeliPadMiniRetina2G_Cellular,
-                       UIDeviceModeliPadAir_Wifi,
-                       UIDeviceModeliPadAir_Cellular];
-    if ([ipads containsObject:modelName]) {
+    else if ([modelName rangeOfString:@"iPad"].location != NSNotFound) {
         return UIDeviceModelTypeiPad;
     }
     
