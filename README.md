@@ -8,8 +8,10 @@ iAppInfos allows a easy access to ALL important App informations.
 # Device infos
 *   iOS Version 
 *   Device model
-*   Free Disk Space
-*   Battery Level 
+*   Free disk space
+*   Free memory space
+*   Battery level 
+*   Operator name
 
 # Apps infos
 *   Targeted iOS Version
