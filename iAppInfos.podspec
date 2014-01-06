@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
         s.name         = 'iAppInfos'
-        s.version = '0.0.5'
+        s.version = '0.0.6'
         s.requires_arc = true
         s.author = {
                 'Morissard Jérome' => 'morissardj@gmail.com'
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
         s.homepage = 'https://github.com/leverdeterre/iAppInfos'
         s.source = {
         :git => 'https://github.com/leverdeterre/iAppInfos.git',
-        :tag => "0.0.5"
+        :tag => "0.0.6"
         }
         s.source_files = 'iAppInfos/iAppInfos/iAppInfos/*'
 		s.frameworks    = 'CoreTelephony'
