@@ -12,6 +12,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Free memory space
 *   Battery level 
 *   Operator name
+*   Has good graphical performance?  (Why detect good/bad performance? to enable optional effects if chipset/processor are strong enough)
 
 # Apps infos
 *   Targeted iOS Version
@@ -77,7 +78,8 @@ AppVersionManagerKeyBatteryLevel                @"BatteryLevel"
 AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
 AppVersionManagerKeyPushToken                   @"PushToken"  //From Datasource
 AppVersionManagerKeyFreeMemory                  @"FreeMemory"
-
+AppVersionManagerKeyOperator                    @"Operator"
+AppVersionManagerKeyGraphicalPerformance        @"Has Good Graphical Performance"
 ```
 ##Customs key/values
 ###Add a custom value
