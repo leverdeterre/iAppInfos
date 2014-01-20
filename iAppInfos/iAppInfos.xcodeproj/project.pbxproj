@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C219471618761679008A48D5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C219471518761679008A48D5 /* CoreTelephony.framework */; };
+		C2505F6B188BDCC900FC969F /* JMODevicePowerInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */; };
 		C29315B21866438A005B65AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B11866438A005B65AF /* Foundation.framework */; };
 		C29315B41866438A005B65AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B31866438A005B65AF /* CoreGraphics.framework */; };
 		C29315B61866438A005B65AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B51866438A005B65AF /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		C219471518761679008A48D5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C2505F69188BDCC900FC969F /* JMODevicePowerInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMODevicePowerInfos.h; sourceTree = "<group>"; };
+		C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMODevicePowerInfos.m; sourceTree = "<group>"; };
 		C29315AE1866438A005B65AF /* iAppInfos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAppInfos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29315B11866438A005B65AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C29315B31866438A005B65AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -196,6 +199,8 @@
 				C29315FC1866448F005B65AF /* AppInformationsManager.m */,
 				C29315E71866445D005B65AF /* JMOMobileProvisionning.h */,
 				C29315E81866445D005B65AF /* JMOMobileProvisionning.m */,
+				C2505F69188BDCC900FC969F /* JMODevicePowerInfos.h */,
+				C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */,
 				C29315E91866445D005B65AF /* NSDictionary+iAppInfos.h */,
 				C29315EA1866445D005B65AF /* NSDictionary+iAppInfos.m */,
 				C29315EB1866445D005B65AF /* UIApplication+iAppInfos.h */,
@@ -310,6 +315,7 @@
 			files = (
 				C29315BE1866438A005B65AF /* main.m in Sources */,
 				C29315F11866445D005B65AF /* UIApplication+iAppInfos.m in Sources */,
+				C2505F6B188BDCC900FC969F /* JMODevicePowerInfos.m in Sources */,
 				C29315F21866445D005B65AF /* UIDevice+iAppInfos.m in Sources */,
 				C29315F91866446B005B65AF /* JMOViewControllerProvisioningDetails.m in Sources */,
 				C29315C81866438A005B65AF /* JMOViewController.m in Sources */,

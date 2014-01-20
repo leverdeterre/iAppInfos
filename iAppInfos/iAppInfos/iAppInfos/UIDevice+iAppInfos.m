@@ -7,6 +7,8 @@
 //
 
 #import "UIDevice+iAppInfos.h"
+#import "JMODevicePowerInfos.h"
+
 #include <sys/sysctl.h>
 
 NSString * const UIDeviceModeliPhone1G                      = @"iPhone 1G";
@@ -110,8 +112,6 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPad4,1"])      return UIDeviceModeliPadAir_Wifi;
     if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
     
-    if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
-
     if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
     if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulator;
     
@@ -133,6 +133,11 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     }
     
     return UIDeviceModelTypeSimulator;
+}
+
++ (JMODevicePowerInfos *)jmo_devicePowerInfos
+{
+    return [JMODevicePowerInfos infosForDeviceModelNamed:[self jmo_modelName]];
 }
 
 @end

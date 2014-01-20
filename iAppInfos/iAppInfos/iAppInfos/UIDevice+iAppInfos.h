@@ -60,6 +60,7 @@ typedef NS_ENUM(NSInteger, UIDeviceModelType) {
     UIDeviceModelTypeSimulator
 };
 
+@class JMODevicePowerInfos;
 @interface UIDevice (iAppInfos)
 
 + (NSString *)jmo_modelName;
@@ -69,5 +70,6 @@ typedef NS_ENUM(NSInteger, UIDeviceModelType) {
  *  the device is assumed to be a simulator.
  */
 + (UIDeviceModelType)jmo_deviceModelType;
++ (JMODevicePowerInfos *)jmo_devicePowerInfos;
 
 @end

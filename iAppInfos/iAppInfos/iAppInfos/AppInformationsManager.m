@@ -12,6 +12,7 @@
 #import "UIApplication+iAppInfos.h"
 #import "NSDictionary+iAppInfos.h"
 #import "JMOMobileProvisionning.h"
+#import "JMODevicePowerInfos.h"
 
 #import "mach/mach.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -212,11 +213,19 @@ vm_size_t machFreeMemory(void)
     return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
 }
 
-- (NSString *)operator {
+- (NSString *)operator
+{
     CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
     CTCarrier *carrier = [netinfo subscriberCellularProvider];
     return [carrier carrierName];
 }
+
+- (BOOL)hasGoodGraphicalPerformance
+{
+    JMODevicePowerInfos *graphInfo = [JMODevicePowerInfos infosForDeviceModelNamed:[UIDevice jmo_modelName]];
+    return [graphInfo hasGoodGraphicPerformance];
+}
+
 
 #pragma mark - Public 
 
@@ -264,6 +273,12 @@ vm_size_t machFreeMemory(void)
     }
     else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
         return [self operator];
+    }
+    else if ([key isEqualToString:AppVersionManagerKeyGraphicalPerformance]) {
+        if ([self hasGoodGraphicalPerformance]) {
+            return @"YES";
+        }
+        return  @"NO";
     }
     else {
         id obj = [self.customValues objectForKey:key];

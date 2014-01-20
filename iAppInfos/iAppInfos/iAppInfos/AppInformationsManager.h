@@ -21,6 +21,7 @@
 #define AppVersionManagerKeyPushToken                   @"PushToken" //From Datasource
 #define AppVersionManagerKeyFreeMemory                  @"FreeMemory"
 #define AppVersionManagerKeyOperator                    @"Operator"
+#define AppVersionManagerKeyGraphicalPerformance        @"Has Good Graphical Performance"
 
 @class AppInformationsManager;
 @protocol AppInformationsManagerDatasource <NSObject>
