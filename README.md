@@ -4,7 +4,6 @@ iAppInfos
 [![Twitter](https://img.shields.io/badge/contact-@leverdeterre-green.svg)](http://twitter.com/leverdeterre)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/leverdeterre/iAppInfos/blob/master/LICENCE)
 [![Cocoapods](http://img.shields.io/cocoapods/v/iAppInfos.svg)](https://github.com/leverdeterre/iAppInfos)
-[![Travis](http://img.shields.io/travis/leverdeterre/UINavig
 
 iAppInfos allows a easy access to ALL important App informations.  
 
