@@ -47,19 +47,23 @@ See the sample, a very classic TableView Controller (JMOViewController)
 
 ```objective-c
 //Using properties
-@property (strong, readonly, nonatomic) NSString *targetedVersion;
-@property (strong, readonly, nonatomic) NSString *currentOSVersion;
-@property (strong, readonly, nonatomic) NSString *appVersion;
-@property (strong, readonly, nonatomic) NSString *shortAppVersion;
-@property (assign, readonly, nonatomic) NSInteger freeMemorySpace; //in pourcent
-@property (strong, readonly, nonatomic) NSString *operatorName;
-@property (strong, readonly, nonatomic) NSString *deviceModelName;
-@property (assign, readonly, nonatomic) UIDeviceModelType deviceModelType;
-@property (strong, readonly, nonatomic) JMODevicePowerInfos *devicePowerInfo;
-@property (strong, readonly, nonatomic) NSString *compilationSDK;
-@property (strong, readonly, nonatomic) NSString *freeDiskSpace;
-@property (assign, readonly, nonatomic) NSInteger batteryLevel; //in pourcent
-@property (strong, readonly, nonatomic) JMOMobileProvisionning *mobileProvisionning;
+
+[AppInformationsManager sharedManager].targetedVersion
+[AppInformationsManager sharedManager].currentOSVersion
+[AppInformationsManager sharedManager].appVersion
+[AppInformationsManager sharedManager].shortAppVersion
+[AppInformationsManager sharedManager].freeMemorySpace
+[AppInformationsManager sharedManager].operatorName
+[AppInformationsManager sharedManager].deviceModelName
+[AppInformationsManager sharedManager].deviceModelType
+[AppInformationsManager sharedManager].devicePowerInfo
+[[AppInformationsManager sharedManager].devicePowerInfo hasGoodGraphicPerformance]
+[AppInformationsManager sharedManager].compilationSDK
+[AppInformationsManager sharedManager].freeDiskSpace
+[AppInformationsManager sharedManager].batteryLevel
+[AppInformationsManager sharedManager].mobileProvisionning
+[[AppInformationsManager sharedManager].mobileProvisionning provisionedDevices]
+[[AppInformationsManager sharedManager].mobileProvisionning summary]
 
 //Using dictionnary keys
 [[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
