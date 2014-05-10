@@ -228,7 +228,7 @@ vm_size_t machFreeMemory(void)
         return [self freeDiskSpace];
     }
     else if ([key isEqualToString:AppVersionManagerKeyBatteryLevel]) {
-        int batteryLevel = [self batteryLevel];
+        int batteryLevel = (int)[self batteryLevel];
         return [NSString stringWithFormat:@"%d%%",batteryLevel];
     }
     else if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {

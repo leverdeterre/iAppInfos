@@ -63,6 +63,17 @@
     return self;
 }
 
+- (JMOMobileProvisionningPushConfiguration)pushConfiguration
+{
+    if ([_apsEnvironment isEqualToString:@"development"]) {
+        return JMOMobileProvisionningPushConfigurationDevelopment;
+    } else if ([_apsEnvironment isEqualToString:@"production"]) {
+        return JMOMobileProvisionningPushConfigurationProduction;
+    }
+    
+    return JMOMobileProvisionningPushConfigurationDisable;
+}
+
 - (NSDictionary *)summary  //Overided setter, to change keyName
 {
     NSMutableDictionary *editedDict = [_summary mutableCopy];

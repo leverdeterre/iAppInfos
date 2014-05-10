@@ -19,6 +19,12 @@
 #define MobileProvisioningGetTaskAllow @"get-task-allow"
 #define MobileProvisioningApsEnvironment @"aps-environment"
 
+typedef NS_ENUM(NSUInteger, JMOMobileProvisionningPushConfiguration) {
+    JMOMobileProvisionningPushConfigurationDisable,
+    JMOMobileProvisionningPushConfigurationDevelopment,
+    JMOMobileProvisionningPushConfigurationProduction
+};
+
 @interface JMOMobileProvisionning : NSObject
 
 @property (strong, nonatomic) NSDictionary *summary;
@@ -32,6 +38,7 @@
 @property (strong, nonatomic) NSString *teamName;
 @property (strong, nonatomic) NSString *isDevMobileProvisioning;
 @property (strong, nonatomic) NSString *apsEnvironment;
+@property (assign, readonly, nonatomic) JMOMobileProvisionningPushConfiguration pushConfiguration;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
