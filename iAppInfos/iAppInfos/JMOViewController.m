@@ -36,12 +36,6 @@
     self.tableView.dataSource = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    //JMOLog(@"%@", [AppInformationsManager sharedManager]);
-}
-
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
