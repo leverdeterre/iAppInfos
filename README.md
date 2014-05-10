@@ -31,16 +31,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   WS Configuration
 *   Token push
 
-# Configuration
-
-To configure iAppInfos, you can set a custom datasource
-```objective-c
-[AppInformationsManager sharedManager].datasource = self;
-```
-
 ## Configure interest keys
-
-Your datasource can optionally implement desiredKeysForAppVersionManager method to filter the keys you need to observe.
 
 ```objective-c
 
@@ -65,6 +56,22 @@ See the sample, a very classic TableView Controller (JMOViewController)
 # Get informations one by one
 
 ```objective-c
+//Using properties
+@property (strong, readonly, nonatomic) NSString *targetedVersion;
+@property (strong, readonly, nonatomic) NSString *currentOSVersion;
+@property (strong, readonly, nonatomic) NSString *appVersion;
+@property (strong, readonly, nonatomic) NSString *shortAppVersion;
+@property (assign, readonly, nonatomic) NSInteger freeMemorySpace; //in pourcent
+@property (strong, readonly, nonatomic) NSString *operatorName;
+@property (strong, readonly, nonatomic) NSString *deviceModelName;
+@property (assign, readonly, nonatomic) UIDeviceModelType deviceModelType;
+@property (strong, readonly, nonatomic) JMODevicePowerInfos *devicePowerInfo;
+@property (strong, readonly, nonatomic) NSString *compilationSDK;
+@property (strong, readonly, nonatomic) NSString *freeDiskSpace;
+@property (assign, readonly, nonatomic) NSInteger batteryLevel; //in pourcent
+@property (strong, readonly, nonatomic) JMOMobileProvisionning *mobileProvisionning;
+
+//Using dictionnary keys
 [[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
 ```
 
