@@ -61,7 +61,7 @@ See the sample, a very classic TableView Controller (JMOViewController)
 [AppInformationsManager sharedManager].batteryLevel
 [AppInformationsManager sharedManager].mobileProvisionning
 [[AppInformationsManager sharedManager].mobileProvisionning provisionedDevices]
-[[AppInformationsManager sharedManager].mobileProvisionning summary]
+[[AppInformationsManager sharedManager].mobileProvisionning pushConfiguration]
 
 //Using dictionnary keys
 [[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
