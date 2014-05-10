@@ -9,8 +9,8 @@ iAppInfos allows a easy access to ALL important App informations.
 
 ![Image](demo.png)
 
-##Available informations
-# Device infos
+#Available informations
+## Device infos
 *   iOS version 
 *   Device model
 *   Device type
@@ -20,7 +20,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Battery level 
 *   Operator name
 
-# Apps infos
+## Apps infos
 *   Targeted iOS version
 *   App version number 
 *   App short Version number
@@ -29,25 +29,13 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Mobile provisionning dev information (development / production),
 *   Mobile provisionning UDID list (provisioned devices),
 
-# Optionnal keys
+##Add custom values
 *   WS Configuration
 *   Token push
 
-## Configure interest keys
-
 ```objective-c
-
-- (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager
-{
-    return @[AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyFreeDiskSpace, AppVersionManagerKeyBatteryLevel, AppVersionManagerKeyFreeMemory, AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
-}
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
 ```
-## WS / Token configuration  
-
-Your datasource can optionally implements this 2 methods to help the Manager to find this 2 values.
-
-+ getWSConfigurationForAppVersionManager
-+ getpushTokenForAppVersionManager
 
 # Usage in the real life 
 
@@ -79,25 +67,20 @@ See the sample, a very classic TableView Controller (JMOViewController)
 
 ##Defined keys are :
 ```objective-c
-AppVersionManagerKeyTargetedVersion             @"MinTargetedVersion"
-AppVersionManagerKeyYouriOSVersion              @"iOSVersion"
-AppVersionManagerKeyYourDeviceModel             @"DeviceModel"
-AppVersionManagerKeyCompilationSDK              @"SDKUseForCompilation"
-AppVersionManagerKeyWSConfiguration             @"WSConfiguration"  //From Datasource
-AppVersionManagerKeyCFBundleVersion             @"Version"
-AppVersionManagerKeyCFBundleShortVersionString  @"ShortVersionString"
-AppVersionManagerKeyFreeDiskSpace               @"FreeDiskSpace"
-AppVersionManagerKeyBatteryLevel                @"BatteryLevel"
-AppVersionManagerKeyMobileProvisionning         @"MobileProvisionning"
-AppVersionManagerKeyPushToken                   @"PushToken"  //From Datasource
-AppVersionManagerKeyFreeMemory                  @"FreeMemory"
-AppVersionManagerKeyOperator                    @"Operator"
-AppVersionManagerKeyGraphicalPerformance        @"Has Good Graphical Performance"
+#define AppVersionManagerKeyTargetedVersion             @"targetedVersion"
+#define AppVersionManagerKeyYouriOSVersion              @"currentOSVersion"
+#define AppVersionManagerKeyCFBundleVersion             @"appVersion"
+#define AppVersionManagerKeyCFBundleShortVersionString  @"shortAppVersion"
+#define AppVersionManagerKeyFreeMemory                  @"freeMemorySpace"
+#define AppVersionManagerKeyOperator                    @"operatorName"
+#define AppVersionManagerKeyYourDeviceModel             @"deviceModelName"
+#define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
+#define AppVersionManagerKeyGraphicalPerformance        @"devicePowerInfo"
+#define AppVersionManagerKeyCompilationSDK              @"compilationSDK"
+#define AppVersionManagerKeyFreeDiskSpace               @"freeDiskSpace"
+#define AppVersionManagerKeyBatteryLevel                @"batteryLevel"
+#define AppVersionManagerKeyMobileProvisionning         @"mobileProvisionning"
 ```
-##Customs key/values
-###Add a custom value
-```objective-c
-[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
-```
+
 
 
