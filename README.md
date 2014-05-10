@@ -39,11 +39,10 @@ iAppInfos allows a easy access to ALL important App informations.
 
 # Usage in the real life 
 
-# Present all informations
-
+## Present all informations in a tableView (try the demo)
 See the sample, a very classic TableView Controller (JMOViewController)
 
-# Get informations one by one
+## Get informations one by one
 
 ```objective-c
 //Using properties
