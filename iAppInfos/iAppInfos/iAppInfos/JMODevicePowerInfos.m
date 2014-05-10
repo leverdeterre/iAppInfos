@@ -199,7 +199,24 @@
         infos.geekbenchScore = 2594;
         infos.retina = YES;
     }
-
+    
+    else if ([deviceModelName isEqualToString:UIDeviceModeliPadAir_4GCellular]) {
+        infos.systemOnChip = @"Apple A7";
+        infos.cpu = @"Cyclone (Apple-designed)";
+        infos.gpu = @"PowerVR G6430";
+        infos.futuremarkScore = 9615*2; //in theory == UIDeviceModeliPadAir_Wifi
+        infos.geekbenchScore = 2594;
+        infos.retina = YES;
+    }
+    else if ([deviceModelName isEqualToString:UIDeviceModeliPadMiniRetina4G_Cellular] ) {
+        infos.systemOnChip = @"Apple A7";
+        infos.cpu = @"Cyclone (Apple-designed)";
+        infos.gpu = @"PowerVR G6430";
+        infos.futuremarkScore = 9615*2; //in theory == UIDeviceModeliPadAir_Wifi
+        infos.geekbenchScore = 2390;
+        infos.retina = YES;
+    }
+    
     return infos;
 }
 
