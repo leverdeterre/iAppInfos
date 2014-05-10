@@ -47,7 +47,6 @@ See the sample, a very classic TableView Controller (JMOViewController)
 
 ```objective-c
 //Using properties
-
 [AppInformationsManager sharedManager].targetedVersion
 [AppInformationsManager sharedManager].currentOSVersion
 [AppInformationsManager sharedManager].appVersion
