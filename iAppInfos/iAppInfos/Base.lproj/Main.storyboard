@@ -13,12 +13,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0Ag-n5-up7" kind="relationship" relationship="rootViewController" id="RXy-V7-eYY"/>
+                        <segue destination="zGC-cB-3Ev" kind="relationship" relationship="rootViewController" id="peB-S5-Bs2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gc6-tT-5Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-593" y="-392"/>
+            <point key="canvasLocation" x="-811" y="-392"/>
         </scene>
         <!--View Controller Provisioning Details - Mobile Provisionning-->
         <scene sceneID="3hq-x4-EXQ">
@@ -65,6 +65,43 @@
             </objects>
             <point key="canvasLocation" x="-111" y="310"/>
         </scene>
+        <!--Demos View Controller-->
+        <scene sceneID="FON-Ei-rqw">
+            <objects>
+                <viewController storyboardIdentifier="DemosViewController" id="zGC-cB-3Ev" customClass="DemosViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lM3-q0-PWf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CYl-cc-xTk">
+                                <rect key="frame" x="98" y="165" width="124" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Demo 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="demo1Pressed:" destination="zGC-cB-3Ev" eventType="touchUpInside" id="FZ3-5L-sy4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pB9-ZC-SG4">
+                                <rect key="frame" x="98" y="304" width="124" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Demo 2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="demo2Pressed:" destination="zGC-cB-3Ev" eventType="touchUpInside" id="jeT-Dv-QMh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NOz-FU-nHW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SVu-Iq-Gqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-438" y="-392"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Abp-C2-HHs">
             <objects>
@@ -75,7 +112,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="JMOCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JMOCell" id="f3J-Uv-5Wk" customClass="JMOCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3J-Uv-5Wk" id="c8v-sf-NJn">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -111,7 +148,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMH-L8-u4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="-392"/>
+            <point key="canvasLocation" x="-501" y="300"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

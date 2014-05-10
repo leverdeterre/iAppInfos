@@ -16,7 +16,7 @@
 
 #define CustomKey1 @"CustomKey1"
 
-@interface JMOViewController () <AppInformationsManagerDatasource>
+@interface JMOViewController ()
 @property (nonatomic, strong) NSArray *properties;
 @end
 
@@ -29,10 +29,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"iAppInfos";
     
-    [AppInformationsManager sharedManager].datasource = self;
     [[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
-    
-    self.properties = [[AppInformationsManager sharedManager] observedProperties];
+    self.properties = [[AppInformationsManager sharedManager] filteredKeys];
     self.tableView.dataSource = self;
 }
 

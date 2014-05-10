@@ -8,10 +8,8 @@
 
 #import "AppInformationsManager.h"
 
-#import "UIDevice+iAppInfos.h"
 #import "UIApplication+iAppInfos.h"
 #import "NSDictionary+iAppInfos.h"
-#import "JMOMobileProvisionning.h"
 #import "JMODevicePowerInfos.h"
 
 #import "mach/mach.h"
@@ -50,7 +48,7 @@
 
 - (NSString *)description
 {
-    NSArray *keys = [self observedProperties];
+    NSArray *keys = [self filteredKeys];
     NSMutableString *str = [NSMutableString new];
     [str appendString:@"\n"];
     
@@ -62,37 +60,105 @@
              mobileProvi = (JMOMobileProvisionning *)info;
         }
         else {
-            [str appendFormat:@"\t%@\t%@\n", key, info];
+            [str appendFormat:@"\t\t%@\t%@\n", key, info];
         }
     }
     
     if (nil != mobileProvi) {
         [str appendFormat:@"\n\t#MobileProvisionning infos\n"];
-        [str appendFormat:@"\t%@\n", mobileProvi.teamName ];
-        [str appendFormat:@"\t%@\n", mobileProvi];
+        [str appendFormat:@"\t\t%@\n", mobileProvi.teamName ];
+        [str appendFormat:@"\t\t%@\n", mobileProvi];
     }
     
     return str;
 }
 
-#pragma mark to be datasource
+#pragma overrided getters
 
-- (NSString *)wSConfiguration
+- (NSString *)targetedVersion
 {
-    if ([self.datasource respondsToSelector:@selector(getWSConfigurationForAppVersionManager:)]) {
-        return [self.datasource getWSConfigurationForAppVersionManager:self];
-    }
-    
-    return @"No info ...";
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleInfoDictionaryVersion"];
 }
 
-- (NSString *)pushToken
+- (NSString *)currentOSVersion
 {
-    if ([self.datasource respondsToSelector:@selector(getpushTokenForAppVersionManager:)]) {
-        return [self.datasource getpushTokenForAppVersionManager:self];
+    return [UIDevice currentDevice].systemVersion;
+}
+
+- (NSString *)appVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+}
+
+- (NSString *)shortAppVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
+- (NSInteger)freeMemorySpace
+{
+    unsigned long freeSpace = machFreeMemory();
+    unsigned long long totalMemory = [[NSProcessInfo processInfo] physicalMemory];
+    CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
+    return (NSInteger)(100*pourcent);
+}
+
+- (NSString *)operatorName
+{
+    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [netinfo subscriberCellularProvider];
+    return [carrier carrierName];
+}
+
+- (NSString *)deviceModelName
+{
+    return [UIDevice jmo_modelName];
+}
+
+- (UIDeviceModelType)deviceModelType
+{
+    return [UIDevice jmo_deviceModelType];
+}
+
+- (JMODevicePowerInfos *)devicePowerInfo
+{
+    return [UIDevice jmo_devicePowerInfos];
+}
+
+- (NSString *)compilationSDK
+{
+    return [UIApplication jmo_iOSSDKVersion];
+}
+
+- (NSString *)freeDiskSpace
+{
+    long long freeSpace = [[[[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil] objectForKey:NSFileSystemFreeSize] longLongValue];
+    return [self.class memoryFormatter:freeSpace];
+}
+
+- (NSInteger)batteryLevel
+{
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    return (NSInteger)([UIDevice currentDevice].batteryLevel * 100.0f);
+}
+
+- (JMOMobileProvisionning *)mobileProvisionning
+{
+    NSDictionary *dict = [NSDictionary jmo_dictionaryWithDefaultMobileProvisioning];
+    if (nil == dict) {
+        return nil;
     }
     
-    return @"No info ...";
+    JMOMobileProvisionning *provisionningObj = [[JMOMobileProvisionning alloc] initWithDictionary:dict];
+    return provisionningObj;
+}
+
+- (NSArray *)filteredKeys
+{
+    if (nil == _filteredKeys) {
+            return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
+    }
+    return _filteredKeys;
 }
 
 #pragma mark - Private methods
@@ -125,98 +191,15 @@ vm_size_t machFreeMemory(void)
     return vm_stat.free_count * pagesize;
 }
 
-- (NSString *)freeMemorySpace
-{
-    unsigned long freeSpace = machFreeMemory();
-    unsigned long long totalMemory = [[NSProcessInfo processInfo] physicalMemory];
-    CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
-    return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
-}
-
-#pragma mark *version
-
-- (NSString *)targetedVersion
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleInfoDictionaryVersion"];
-}
-
-- (NSString *)youriOSVersion
-{
-    return [UIDevice currentDevice].systemVersion;
-}
-
-- (NSString *)version
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-}
-
-- (NSString *)shortVersion
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-}
-
-#pragma mark *model
-
-- (NSString *)yourDeviceModel
-{
-    return [UIDevice jmo_modelName];
-}
-
-#pragma mark *SDK
-
-- (NSString *)compilationSDK
-{
-    return [UIApplication jmo_iOSSDKVersion];
-}
-
-#pragma mark *Free space
-
-- (NSString *)freeDiskSpace
-{
-    long long freeSpace = [[[[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil] objectForKey:NSFileSystemFreeSize] longLongValue];
-    return [self.class memoryFormatter:freeSpace];
-}
-
-#pragma mark *Battery level
-
-- (NSString *)batteryLevel
-{
-    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-    return [NSString stringWithFormat:@"%2.f%%",[UIDevice currentDevice].batteryLevel* 100];
-}
-
-#pragma mark *mobile Provisionning
-
-- (JMOMobileProvisionning *)mobileProvisionning
-{
-    NSDictionary *dict = [NSDictionary jmo_dictionaryWithDefaultMobileProvisioning];
-    if (nil == dict) {
-        return nil;
-    }
-    
-    JMOMobileProvisionning *provisionningObj = [[JMOMobileProvisionning alloc] initWithDictionary:dict];
-    return provisionningObj;
-}
-
-#pragma mark *operator
-
-- (NSString *)operator
-{
-    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
-    CTCarrier *carrier = [netinfo subscriberCellularProvider];
-    return [carrier carrierName];
-}
-
-#pragma mark *Graphical Performance
-
-- (BOOL)hasGoodGraphicalPerformance
-{
-    JMODevicePowerInfos *graphInfo = [JMODevicePowerInfos infosForDeviceModelNamed:[UIDevice jmo_modelName]];
-    return [graphInfo hasGoodGraphicPerformance];
-}
-
-
 #pragma mark - Public 
+
+/*
+ #define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
+ #define AppVersionManagerKeyGraphicalPerformance        @"devicePowerInfo"
+ #define AppVersionManagerKeyFreeDiskSpace               @"freeDiskSpace"
+ #define AppVersionManagerKeyBatteryLevel                @"batteryLevel"
+ #define AppVersionManagerKeyMobileProvisionning         @"mobileProvisionning"
+ */
 
 - (id)infoForKey:(NSString *)key
 {
@@ -224,28 +207,29 @@ vm_size_t machFreeMemory(void)
         return [self targetedVersion];
     }
     else if ([key isEqualToString:AppVersionManagerKeyYouriOSVersion]) {
-        return [self youriOSVersion];
+        return [self currentOSVersion];
     }
     else if ([key isEqualToString:AppVersionManagerKeyYourDeviceModel]) {
-        return [self yourDeviceModel];
+        return [self deviceModelName];
     }
     else if ([key isEqualToString:AppVersionManagerKeyCompilationSDK]) {
         return [self compilationSDK];
     }
-    else if ([key isEqualToString:AppVersionManagerKeyWSConfiguration]) {
+    /*else if ([key isEqualToString:AppVersionManagerKeyWSConfiguration]) {
         return [self wSConfiguration];
-    }
+    }*/
     else if ([key isEqualToString:AppVersionManagerKeyCFBundleVersion]) {
-        return [self version];
+        return [self appVersion];
     }
     else if ([key isEqualToString:AppVersionManagerKeyCFBundleShortVersionString]) {
-        return [self shortVersion];
+        return [self shortAppVersion];
     }
     else if ([key isEqualToString:AppVersionManagerKeyFreeDiskSpace]) {
         return [self freeDiskSpace];
     }
     else if ([key isEqualToString:AppVersionManagerKeyBatteryLevel]) {
-        return [self batteryLevel];
+        int batteryLevel = [self batteryLevel];
+        return [NSString stringWithFormat:@"%d%%",batteryLevel];
     }
     else if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
         static JMOMobileProvisionning *provisionningObj;
@@ -254,17 +238,21 @@ vm_size_t machFreeMemory(void)
         }
         return provisionningObj;
     }
-    else if ([key isEqualToString:AppVersionManagerKeyPushToken]) {
+    /*else if ([key isEqualToString:AppVersionManagerKeyPushToken]) {
         return [self pushToken];
-    }
+    }*/
     else if ([key isEqualToString:AppVersionManagerKeyFreeMemory]) {
-        return [self freeMemorySpace];
+        unsigned long freeSpace = machFreeMemory();
+        unsigned long long totalMemory = [[NSProcessInfo processInfo] physicalMemory];
+        CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
+        return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
     }
     else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
-        return [self operator];
+        return [self operatorName];
     }
     else if ([key isEqualToString:AppVersionManagerKeyGraphicalPerformance]) {
-        if ([self hasGoodGraphicalPerformance]) {
+        JMODevicePowerInfos *graphInfo = [JMODevicePowerInfos infosForDeviceModelNamed:[UIDevice jmo_modelName]];
+        if ([graphInfo hasGoodGraphicPerformance]) {
             return @"YES";
         }
         return  @"NO";
@@ -301,15 +289,6 @@ vm_size_t machFreeMemory(void)
     
     [str appendString:@"</TABLE>"];
     return str;
-}
-
-- (NSArray*)observedProperties
-{
-    if ([self.datasource respondsToSelector:@selector(desiredKeysForAppVersionManager:)]) {
-        return [self.datasource desiredKeysForAppVersionManager:self];
-    }
-    
-    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
 }
 
 @end

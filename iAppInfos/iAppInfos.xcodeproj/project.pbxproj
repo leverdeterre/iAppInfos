@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C219471618761679008A48D5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C219471518761679008A48D5 /* CoreTelephony.framework */; };
+		C2209C5F191E2DBC00C4BA60 /* DemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2209C5E191E2DBC00C4BA60 /* DemosViewController.m */; };
 		C2505F6B188BDCC900FC969F /* JMODevicePowerInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */; };
 		C29315B21866438A005B65AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B11866438A005B65AF /* Foundation.framework */; };
 		C29315B41866438A005B65AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29315B31866438A005B65AF /* CoreGraphics.framework */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		C219471518761679008A48D5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C2209C5D191E2DBC00C4BA60 /* DemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemosViewController.h; sourceTree = "<group>"; };
+		C2209C5E191E2DBC00C4BA60 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		C2505F69188BDCC900FC969F /* JMODevicePowerInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMODevicePowerInfos.h; sourceTree = "<group>"; };
 		C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMODevicePowerInfos.m; sourceTree = "<group>"; };
 		C29315AE1866438A005B65AF /* iAppInfos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAppInfos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,8 +173,8 @@
 		C29315B01866438A005B65AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C219471518761679008A48D5 /* CoreTelephony.framework */,
 				C29315E61866445D005B65AF /* iAppInfos */,
+				C219471518761679008A48D5 /* CoreTelephony.framework */,
 				C29315B11866438A005B65AF /* Foundation.framework */,
 				C29315B31866438A005B65AF /* CoreGraphics.framework */,
 				C29315B51866438A005B65AF /* UIKit.framework */,
@@ -192,6 +195,8 @@
 				C29315C31866438A005B65AF /* Main.storyboard */,
 				C29315C61866438A005B65AF /* JMOViewController.h */,
 				C29315C71866438A005B65AF /* JMOViewController.m */,
+				C2209C5D191E2DBC00C4BA60 /* DemosViewController.h */,
+				C2209C5E191E2DBC00C4BA60 /* DemosViewController.m */,
 				C29315C01866438A005B65AF /* JMOAppDelegate.h */,
 				C29315C11866438A005B65AF /* JMOAppDelegate.m */,
 				C29315C91866438A005B65AF /* Images.xcassets */,
@@ -347,6 +352,7 @@
 			files = (
 				C29315BE1866438A005B65AF /* main.m in Sources */,
 				C29315F11866445D005B65AF /* UIApplication+iAppInfos.m in Sources */,
+				C2209C5F191E2DBC00C4BA60 /* DemosViewController.m in Sources */,
 				C2505F6B188BDCC900FC969F /* JMODevicePowerInfos.m in Sources */,
 				C29315F21866445D005B65AF /* UIDevice+iAppInfos.m in Sources */,
 				C29315F91866446B005B65AF /* JMOViewControllerProvisioningDetails.m in Sources */,

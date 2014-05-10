@@ -21,5 +21,6 @@
 
 + (instancetype)infosForDeviceModelNamed:(NSString *)deviceModelName;
 + (void)sortAlldevices;
+- (BOOL)hasGoodGraphicPerformance;
 
 @end
