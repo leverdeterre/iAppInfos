@@ -9,19 +9,21 @@ iAppInfos allows a easy access to ALL important App informations.
 
 ![Image](demo.png)
 
+##Available informations
 # Device infos
-*   iOS Version 
+*   iOS version 
 *   Device model
-*   Free disk space
+*   Device type
+*   Device performace (Has good graphical performance?)
+*   Free disk space 
 *   Free memory space
 *   Battery level 
 *   Operator name
-*   Has good graphical performance?  (Why detect good/bad performance? to enable optional effects if chipset/processor are strong enough)
 
 # Apps infos
-*   Targeted iOS Version
-*   Version number 
-*   Short Version number
+*   Targeted iOS version
+*   App version number 
+*   App short Version number
 *   SDK use for compilation
 *   Mobile provisionning push information (enable or not),
 *   Mobile provisionning dev information (development / production),
