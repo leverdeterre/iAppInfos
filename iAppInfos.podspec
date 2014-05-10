@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
         :tag => "0.0.6"
         }
         s.source_files = 'iAppInfos/iAppInfos/iAppInfos/*'
-	s.frameworks    = 'CoreTelephony'
+	      s.frameworks    = 'CoreTelephony'
 end

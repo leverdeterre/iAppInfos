@@ -110,6 +110,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2209C59191E1F1300C4BA60 /* MobileProvisionning */ = {
+			isa = PBXGroup;
+			children = (
+				C29315E71866445D005B65AF /* JMOMobileProvisionning.h */,
+				C29315E81866445D005B65AF /* JMOMobileProvisionning.m */,
+				C29315E91866445D005B65AF /* NSDictionary+iAppInfos.h */,
+				C29315EA1866445D005B65AF /* NSDictionary+iAppInfos.m */,
+			);
+			name = MobileProvisionning;
+			sourceTree = "<group>";
+		};
+		C2209C5A191E1F3400C4BA60 /* DevicePower */ = {
+			isa = PBXGroup;
+			children = (
+				C2505F69188BDCC900FC969F /* JMODevicePowerInfos.h */,
+				C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */,
+			);
+			name = DevicePower;
+			sourceTree = "<group>";
+		};
+		C2209C5B191E1F4500C4BA60 /* SDKinfos */ = {
+			isa = PBXGroup;
+			children = (
+				C29315EB1866445D005B65AF /* UIApplication+iAppInfos.h */,
+				C29315EC1866445D005B65AF /* UIApplication+iAppInfos.m */,
+			);
+			name = SDKinfos;
+			sourceTree = "<group>";
+		};
+		C2209C5C191E1F5100C4BA60 /* DeviceName */ = {
+			isa = PBXGroup;
+			children = (
+				C29315ED1866445D005B65AF /* UIDevice+iAppInfos.h */,
+				C29315EE1866445D005B65AF /* UIDevice+iAppInfos.m */,
+			);
+			name = DeviceName;
+			sourceTree = "<group>";
+		};
 		C29315A51866438A005B65AF = {
 			isa = PBXGroup;
 			children = (
@@ -197,16 +235,10 @@
 				C29315FF18709D4D005B65AF /* JMOLogMacro.h */,
 				C29315FD1866448F005B65AF /* AppInformationsManager.h */,
 				C29315FC1866448F005B65AF /* AppInformationsManager.m */,
-				C29315E71866445D005B65AF /* JMOMobileProvisionning.h */,
-				C29315E81866445D005B65AF /* JMOMobileProvisionning.m */,
-				C2505F69188BDCC900FC969F /* JMODevicePowerInfos.h */,
-				C2505F6A188BDCC900FC969F /* JMODevicePowerInfos.m */,
-				C29315E91866445D005B65AF /* NSDictionary+iAppInfos.h */,
-				C29315EA1866445D005B65AF /* NSDictionary+iAppInfos.m */,
-				C29315EB1866445D005B65AF /* UIApplication+iAppInfos.h */,
-				C29315EC1866445D005B65AF /* UIApplication+iAppInfos.m */,
-				C29315ED1866445D005B65AF /* UIDevice+iAppInfos.h */,
-				C29315EE1866445D005B65AF /* UIDevice+iAppInfos.m */,
+				C2209C59191E1F1300C4BA60 /* MobileProvisionning */,
+				C2209C5A191E1F3400C4BA60 /* DevicePower */,
+				C2209C5B191E1F4500C4BA60 /* SDKinfos */,
+				C2209C5C191E1F5100C4BA60 /* DeviceName */,
 			);
 			name = iAppInfos;
 			path = iAppInfos/iAppInfos;

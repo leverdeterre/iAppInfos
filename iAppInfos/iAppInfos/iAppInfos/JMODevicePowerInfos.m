@@ -15,6 +15,7 @@
 
 #import "JMODevicePowerInfos.h"
 #import "UIDevice+iAppInfos.h"
+#import "JMOLogMacro.h"
 
 @implementation JMODevicePowerInfos
 
@@ -259,7 +260,7 @@
 + (void)sortAlldevices
 {
     //IPADS
-    NSLog(@"IPADS ");
+    JMOLog(@"IPADS ");
 
     NSArray *alliPadDevices = @[UIDeviceModeliPad,UIDeviceModeliPad2_Wifi,UIDeviceModeliPad3G_Wifi,UIDeviceModeliPad4G_Wifi,UIDeviceModeliPadMini1G_Wifi,UIDeviceModeliPadMiniRetina2G_Wifi,UIDeviceModeliPadAir_Wifi];
     NSMutableArray *arrayOfDeviceInfos = [NSMutableArray new];
@@ -284,7 +285,7 @@
     }
     
     //IPHONES
-    NSLog(@"IPHONES ");
+    JMOLog(@"IPHONES ");
 
     NSArray *alliPhoneDevices = @[UIDeviceModeliPhone1G,UIDeviceModeliPhone3G, UIDeviceModeliPhone3GS,UIDeviceModeliPhone4,UIDeviceModeliPhone4S, UIDeviceModeliPhone5_GSM,UIDeviceModeliPhone5C_GSM,UIDeviceModeliPhone5S_GSM ];
     arrayOfDeviceInfos = [NSMutableArray new];

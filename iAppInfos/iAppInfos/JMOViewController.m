@@ -98,20 +98,33 @@
 
 - (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager
 {
-    return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration,AppVersionManagerKeyOperator,AppVersionManagerKeyGraphicalPerformance,
+    return @[AppVersionManagerKeyTargetedVersion,
+             AppVersionManagerKeyYouriOSVersion,
+             AppVersionManagerKeyYourDeviceModel,
+             AppVersionManagerKeyCompilationSDK,
+             AppVersionManagerKeyCFBundleVersion,
+             AppVersionManagerKeyCFBundleShortVersionString,
+             AppVersionManagerKeyFreeDiskSpace,
+             AppVersionManagerKeyFreeMemory,
+             AppVersionManagerKeyBatteryLevel,
+             AppVersionManagerKeyMobileProvisionning,
+             AppVersionManagerKeyPushToken,
+             AppVersionManagerKeyWSConfiguration,
+             AppVersionManagerKeyOperator,
+             AppVersionManagerKeyGraphicalPerformance,
              CustomKey1];
 }
 
 - (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager
 {
     JMOLog(@"Return WS url ? or something to identified your WS configuration");
-    return @"No info ...";
+    return @"Dev";
 }
 
 - (NSString *)getpushTokenForAppVersionManager:(AppInformationsManager *)manager
 {
     JMOLog(@"Are you storing the token somewhere?");
-    return @"No info ...";
+    return @"";
 }
 
 @end

@@ -29,14 +29,23 @@
 
 #pragma mark Singleton Methods
 
-+ (instancetype)sharedManager {
++ (instancetype)sharedManager
+{
     static AppInformationsManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
-        sharedMyManager.customValues = [NSMutableDictionary new];
     });
     return sharedMyManager;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _customValues = [NSMutableDictionary new];
+    }
+    return self;
 }
 
 - (NSString *)description
@@ -86,7 +95,8 @@
     return @"No info ...";
 }
 
-#pragma mark Private methods
+#pragma mark - Private methods
+#pragma mark *memory
 
 + (NSString *)memoryFormatter:(long long)diskSpace {
     NSString *formatted;
@@ -101,96 +111,6 @@
         formatted = [NSString stringWithFormat:@"%.2f bytes", bytes];
     
     return formatted;
-}
-
-- (NSString *)targetedVersion
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleInfoDictionaryVersion"];
-}
-
-- (NSString *)youriOSVersion
-{
-    return [UIDevice currentDevice].systemVersion;
-}
-
-- (NSString *)yourDeviceModel
-{
-    return [UIDevice jmo_modelName];
-}
-
-- (NSString *)compilationSDK
-{
-    return [UIApplication jmo_iOSSDKVersion];
-}
-
-- (NSString *)version
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-}
-
-- (NSString *)shortVersion
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-}
-
-- (NSString *)freeDiskSpace
-{
-    long long freeSpace = [[[[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil] objectForKey:NSFileSystemFreeSize] longLongValue];
-    return [self.class memoryFormatter:freeSpace];
-}
-
-- (NSString *)batteryLevel
-{
-    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-    return [NSString stringWithFormat:@"%2.f%%",[UIDevice currentDevice].batteryLevel* 100];
-}
-
-- (JMOMobileProvisionning *)mobileProvisionning
-{
-    // There is no provisioning profile in AppStore Apps
-    NSString *profilePath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
-    NSString *result = nil;
-
-    // Check provisioning profile existence
-    if (profilePath)
-    {
-        // Get hex representation
-        NSData *profileData = [NSData dataWithContentsOfFile:profilePath];
-        NSString *profileString = [NSString stringWithFormat:@"%@", profileData];
-        
-        // Remove brackets at beginning and end
-        profileString = [profileString stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-        profileString = [profileString stringByReplacingCharactersInRange:NSMakeRange(profileString.length - 1, 1) withString:@""];
-        
-        // Remove spaces
-        profileString = [profileString stringByReplacingOccurrencesOfString:@" " withString:@""];
-        
-        // Convert hex values to readable characters
-        NSMutableString *profileText = [NSMutableString new];
-        for (int i = 0; i < profileString.length; i += 2)
-        {
-            NSString *hexChar = [profileString substringWithRange:NSMakeRange(i, 2)];
-            int value = 0;
-            sscanf([hexChar cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
-            [profileText appendFormat:@"%c", (char)value];
-        }
-        
-        NSRange range1 = [profileText rangeOfString:@"<?xml"];
-        if ( range1.location != NSNotFound ) {
-            NSRange range2 = [profileText rangeOfString:@"</plist>"];
-            if ( range2.location != NSNotFound ) {
-                NSRange range = NSMakeRange(range1.location, range2.location + range2.length - range1.location);
-                result = [profileText substringWithRange:range];
-                
-                NSDictionary *dict = [NSDictionary jmo_dictionaryWithMobileProvisioningString:result];
-                JMOMobileProvisionning *provisionningObj = [[JMOMobileProvisionning alloc] initWithDictionary:dict];
-                return provisionningObj;
-            }
-        }
-
-    }
-    
-    return nil;
 }
 
 vm_size_t machFreeMemory(void)
@@ -213,12 +133,81 @@ vm_size_t machFreeMemory(void)
     return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
 }
 
+#pragma mark *version
+
+- (NSString *)targetedVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleInfoDictionaryVersion"];
+}
+
+- (NSString *)youriOSVersion
+{
+    return [UIDevice currentDevice].systemVersion;
+}
+
+- (NSString *)version
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+}
+
+- (NSString *)shortVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
+#pragma mark *model
+
+- (NSString *)yourDeviceModel
+{
+    return [UIDevice jmo_modelName];
+}
+
+#pragma mark *SDK
+
+- (NSString *)compilationSDK
+{
+    return [UIApplication jmo_iOSSDKVersion];
+}
+
+#pragma mark *Free space
+
+- (NSString *)freeDiskSpace
+{
+    long long freeSpace = [[[[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil] objectForKey:NSFileSystemFreeSize] longLongValue];
+    return [self.class memoryFormatter:freeSpace];
+}
+
+#pragma mark *Battery level
+
+- (NSString *)batteryLevel
+{
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    return [NSString stringWithFormat:@"%2.f%%",[UIDevice currentDevice].batteryLevel* 100];
+}
+
+#pragma mark *mobile Provisionning
+
+- (JMOMobileProvisionning *)mobileProvisionning
+{
+    NSDictionary *dict = [NSDictionary jmo_dictionaryWithDefaultMobileProvisioning];
+    if (nil == dict) {
+        return nil;
+    }
+    
+    JMOMobileProvisionning *provisionningObj = [[JMOMobileProvisionning alloc] initWithDictionary:dict];
+    return provisionningObj;
+}
+
+#pragma mark *operator
+
 - (NSString *)operator
 {
     CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
     CTCarrier *carrier = [netinfo subscriberCellularProvider];
     return [carrier carrierName];
 }
+
+#pragma mark *Graphical Performance
 
 - (BOOL)hasGoodGraphicalPerformance
 {

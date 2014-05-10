@@ -10,6 +10,7 @@
 
 @interface NSDictionary (iAppInfos)
 
++ (NSDictionary *)jmo_dictionaryWithDefaultMobileProvisioning;
 + (NSDictionary *)jmo_dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning;
 
 @end

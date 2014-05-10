@@ -11,6 +11,53 @@
 
 @implementation NSDictionary (MobileProvisionningParser)
 
++ (NSDictionary *)jmo_dictionaryWithDefaultMobileProvisioning
+{
+    // There is no provisioning profile in AppStore Apps
+    NSString *profilePath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
+    NSString *result = nil;
+    
+    // Check provisioning profile existence
+    if (profilePath)
+    {
+        // Get hex representation
+        NSData *profileData = [NSData dataWithContentsOfFile:profilePath];
+        NSString *profileString = [NSString stringWithFormat:@"%@", profileData];
+        
+        // Remove brackets at beginning and end
+        profileString = [profileString stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+        profileString = [profileString stringByReplacingCharactersInRange:NSMakeRange(profileString.length - 1, 1) withString:@""];
+        
+        // Remove spaces
+        profileString = [profileString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        // Convert hex values to readable characters
+        NSMutableString *profileText = [NSMutableString new];
+        for (int i = 0; i < profileString.length; i += 2)
+        {
+            NSString *hexChar = [profileString substringWithRange:NSMakeRange(i, 2)];
+            int value = 0;
+            sscanf([hexChar cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
+            [profileText appendFormat:@"%c", (char)value];
+        }
+        
+        NSRange range1 = [profileText rangeOfString:@"<?xml"];
+        if ( range1.location != NSNotFound ) {
+            NSRange range2 = [profileText rangeOfString:@"</plist>"];
+            if ( range2.location != NSNotFound ) {
+                NSRange range = NSMakeRange(range1.location, range2.location + range2.length - range1.location);
+                result = [profileText substringWithRange:range];
+                
+                NSDictionary *dict = [NSDictionary jmo_dictionaryWithMobileProvisioningString:result];
+                return dict;
+            }
+        }
+        
+    }
+    
+    return nil;
+}
+
 + (NSDictionary *)jmo_dictionaryWithMobileProvisioningString:(NSString *)RawMobileProvisionning
 {
     NSMutableDictionary *dictionary =  [NSMutableDictionary new];

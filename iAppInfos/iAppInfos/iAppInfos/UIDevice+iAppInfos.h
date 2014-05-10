@@ -63,13 +63,25 @@ typedef NS_ENUM(NSInteger, UIDeviceModelType) {
 @class JMODevicePowerInfos;
 @interface UIDevice (iAppInfos)
 
+/**
+ *  jmo_modelName give a more explicit name of the device model
+ *
+ *  @return NSString, a better device model name
+ */
 + (NSString *)jmo_modelName;
 
-/*!
- * @return Whether the device is an iPod, iPhone, or iPad. If it is not explicitly any of those,
+/**
+ *  Whether the device is an iPod, iPhone, or iPad. If it is not explicitly any of those,
  *  the device is assumed to be a simulator.
+ *
+ *  @return UIDeviceModelType 
  */
 + (UIDeviceModelType)jmo_deviceModelType;
+
+/**
+ *
+ *  @return JMODevicePowerInfos object
+ */
 + (JMODevicePowerInfos *)jmo_devicePowerInfos;
 
 @end

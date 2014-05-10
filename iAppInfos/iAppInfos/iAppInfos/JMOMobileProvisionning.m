@@ -79,12 +79,10 @@
     value = [_summary objectForKey:MobileProvisioningApsEnvironment];
     [editedDict removeObjectForKey:MobileProvisioningApsEnvironment];
     if ([value isEqualToString:@"development"]) {
-        [editedDict setObject:@"YES" forKey:@"Push Enable"];
-    }
-    else if ([value isEqualToString:@"production"]) {
-        [editedDict setObject:@"NO" forKey:@"Push Enable"];
-    }
-    else {
+        [editedDict setObject:@"YES" forKey:@"Push Enable (DEV)"];
+    } else if ([value isEqualToString:@"production"]) {
+        [editedDict setObject:@"YES" forKey:@"Push Enable (PROD)"];
+    } else {
         [editedDict setObject:@"NO" forKey:@"Push Enable"];
     }
     
