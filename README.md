@@ -34,7 +34,8 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Token push
 
 ```objective-c
-[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" 
+                                          forCustomKey:@"CustomKey1"];
 ```
 
 # Usage in the real life 
