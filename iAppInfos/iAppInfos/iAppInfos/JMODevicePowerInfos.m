@@ -13,11 +13,25 @@
 #define jmoiPhoneLimitOfBadPerformaceFuturemark      200.0f //treshold base on realScore (futuremark)
 #define jmoiPhoneLimitOfBadPerformaceGeekbench       100.0f //treshold base on realScore (geekBench)
 
+#define jmoUndefinedScore -1
+
 #import "JMODevicePowerInfos.h"
 #import "UIDevice+iAppInfos.h"
 #import "JMOLogMacro.h"
 
 @implementation JMODevicePowerInfos
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _futuremarkScore = jmoUndefinedScore;
+        _geekbenchScore = jmoUndefinedScore;
+        _retina = (BOOL)([UIScreen mainScreen].scale == 2.0f);
+    }
+    
+    return self;
+}
 
 + (instancetype)infosForDeviceModelNamed:(NSString *)deviceModelName
 {
@@ -222,6 +236,11 @@
 
 - (BOOL)hasGoodGraphicPerformance
 {
+    //Return YES for hasGoodGraphicPerformance for unknow device (new devices are suppose to be better ...)
+    if (self.futuremarkScore == jmoUndefinedScore || self.geekbenchScore == jmoUndefinedScore ) {
+        return YES;
+    }
+    
     if ([self.deviceModel rangeOfString:@"Simulator"].location != NSNotFound) {
         return YES;
     }
@@ -278,7 +297,7 @@
 {
     //IPADS
     JMOLog(@"IPADS ");
-
+    
     NSArray *alliPadDevices = @[UIDeviceModeliPad,UIDeviceModeliPad2_Wifi,UIDeviceModeliPad3G_Wifi,UIDeviceModeliPad4G_Wifi,UIDeviceModeliPadMini1G_Wifi,UIDeviceModeliPadMiniRetina2G_Wifi,UIDeviceModeliPadAir_Wifi];
     NSMutableArray *arrayOfDeviceInfos = [NSMutableArray new];
     for (NSString *deviceName in alliPadDevices) {
@@ -303,7 +322,7 @@
     
     //IPHONES
     JMOLog(@"IPHONES ");
-
+    
     NSArray *alliPhoneDevices = @[UIDeviceModeliPhone1G,UIDeviceModeliPhone3G, UIDeviceModeliPhone3GS,UIDeviceModeliPhone4,UIDeviceModeliPhone4S, UIDeviceModeliPhone5_GSM,UIDeviceModeliPhone5C_GSM,UIDeviceModeliPhone5S_GSM ];
     arrayOfDeviceInfos = [NSMutableArray new];
     for (NSString *deviceName in alliPhoneDevices) {

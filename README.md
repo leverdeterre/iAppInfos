@@ -34,7 +34,8 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Token push
 
 ```objective-c
-[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:@"CustomKey1"];
+[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" 
+                                          forCustomKey:@"CustomKey1"];
 ```
 
 # Usage in the real life 
@@ -61,7 +62,7 @@ See the sample, a very classic TableView Controller (JMOViewController)
 [AppInformationsManager sharedManager].batteryLevel
 [AppInformationsManager sharedManager].mobileProvisionning
 [[AppInformationsManager sharedManager].mobileProvisionning provisionedDevices]
-[[AppInformationsManager sharedManager].mobileProvisionning summary]
+[[AppInformationsManager sharedManager].mobileProvisionning pushConfiguration]
 
 //Using dictionnary keys
 [[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
