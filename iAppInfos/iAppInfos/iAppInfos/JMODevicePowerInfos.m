@@ -245,22 +245,19 @@
         return YES;
     }
     else if ([self.deviceModel rangeOfString:@"iPad"].location != NSNotFound) {
-        if ([self realScore] < jmoiPadLimitOfBadPerformaceFuturemark) {
+        if ([self realScore] < jmoiPadLimitOfBadPerformaceGeekbench) {
             return NO;
         }
-        return NO;
     }
     else if ([self.deviceModel rangeOfString:@"iPhone"].location != NSNotFound) {
-        if ([self realScore] < jmoiPhoneLimitOfBadPerformaceFuturemark) {
+        if ([self realScore] < jmoiPadLimitOfBadPerformaceGeekbench) {
             return NO;
         }
-        return NO;
     }
     else if ([self.deviceModel rangeOfString:@"iPod"].location != NSNotFound) {
-        if ([self realScore] < jmoiPhoneLimitOfBadPerformaceFuturemark) {
+        if ([self realScore] < jmoiPadLimitOfBadPerformaceGeekbench) {
             return NO;
         }
-        return NO;
     }
     
     return YES;
