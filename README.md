@@ -16,6 +16,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Device type
 *   Device performace (Has good graphical performance?)
 *   Free disk space 
+*   Memory Use By the App
 *   Free memory space
 *   Battery level 
 *   Operator name
@@ -34,7 +35,7 @@ iAppInfos allows a easy access to ALL important App informations.
 *   Token push
 
 ```objective-c
-[[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" 
+[[iAppInfos sharedInfo] addCustomValue:@"This is a custom value" 
                                           forCustomKey:@"CustomKey1"];
 ```
 
@@ -47,25 +48,25 @@ See the sample, a very classic TableView Controller (JMOViewController)
 
 ```objective-c
 //Using properties
-[AppInformationsManager sharedManager].targetedVersion
-[AppInformationsManager sharedManager].currentOSVersion
-[AppInformationsManager sharedManager].appVersion
-[AppInformationsManager sharedManager].shortAppVersion
-[AppInformationsManager sharedManager].freeMemorySpace
-[AppInformationsManager sharedManager].operatorName
-[AppInformationsManager sharedManager].deviceModelName
-[AppInformationsManager sharedManager].deviceModelType
-[AppInformationsManager sharedManager].devicePowerInfo
-[[AppInformationsManager sharedManager].devicePowerInfo hasGoodGraphicPerformance]
-[AppInformationsManager sharedManager].compilationSDK
-[AppInformationsManager sharedManager].freeDiskSpace
-[AppInformationsManager sharedManager].batteryLevel
-[AppInformationsManager sharedManager].mobileProvisionning
-[[AppInformationsManager sharedManager].mobileProvisionning provisionedDevices]
-[[AppInformationsManager sharedManager].mobileProvisionning pushConfiguration]
+[iAppInfos sharedInfo].targetedVersion
+[iAppInfos sharedInfo].currentOSVersion
+[iAppInfos sharedInfo].appVersion
+[iAppInfos sharedInfo].shortAppVersion
+[iAppInfos sharedInfo].freeMemorySpace
+[iAppInfos sharedInfo].operatorName
+[iAppInfos sharedInfo].deviceModelName
+[iAppInfos sharedInfo].deviceModelType
+[iAppInfos sharedInfo].devicePowerInfo
+[[iAppInfos sharedInfor].devicePowerInfo hasGoodGraphicPerformance]
+[iAppInfos sharedInfo].compilationSDK
+[iAppInfos sharedInfo].freeDiskSpace
+[iAppInfos sharedInfo].batteryLevel
+[iAppInfos sharedInfo].mobileProvisionning
+[[iAppInfos sharedInfo].mobileProvisionning provisionedDevices]
+[[iAppInfos sharedInfo].mobileProvisionning pushConfiguration]
 
 //Using dictionnary keys
-[[AppInformationsManager sharedManager] infoForKey:AppVersionManagerKeyYouriOSVersion];
+[[iAppInfos sharedInfo] infoForKey:AppVersionManagerKeyYouriOSVersion];
 ```
 
 ##Defined keys are :
@@ -75,6 +76,7 @@ See the sample, a very classic TableView Controller (JMOViewController)
 #define AppVersionManagerKeyCFBundleVersion             @"appVersion"
 #define AppVersionManagerKeyCFBundleShortVersionString  @"shortAppVersion"
 #define AppVersionManagerKeyFreeMemory                  @"freeMemorySpace"
+#define AppVersionManagerKeyMemoryUseByApp              @"memoryUsedByApp"
 #define AppVersionManagerKeyOperator                    @"operatorName"
 #define AppVersionManagerKeyYourDeviceModel             @"deviceModelName"
 #define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
