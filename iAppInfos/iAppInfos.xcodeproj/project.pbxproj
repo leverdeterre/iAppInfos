@@ -31,7 +31,7 @@
 		C29315F91866446B005B65AF /* JMOViewControllerProvisioningDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = C29315F31866446B005B65AF /* JMOViewControllerProvisioningDetails.m */; };
 		C29315FA1866446B005B65AF /* JMOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29315F51866446B005B65AF /* JMOTableViewController.m */; };
 		C29315FB1866446B005B65AF /* JMOCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C29315F71866446B005B65AF /* JMOCell.m */; };
-		C29315FE1866448F005B65AF /* AppInformationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C29315FC1866448F005B65AF /* AppInformationsManager.m */; };
+		C29315FE1866448F005B65AF /* iAppInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = C29315FC1866448F005B65AF /* iAppInfos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +83,8 @@
 		C29315F61866446B005B65AF /* JMOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewController.h; sourceTree = "<group>"; };
 		C29315F71866446B005B65AF /* JMOCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOCell.m; sourceTree = "<group>"; };
 		C29315F81866446B005B65AF /* JMOCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOCell.h; sourceTree = "<group>"; };
-		C29315FC1866448F005B65AF /* AppInformationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInformationsManager.m; sourceTree = "<group>"; };
-		C29315FD1866448F005B65AF /* AppInformationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInformationsManager.h; sourceTree = "<group>"; };
+		C29315FC1866448F005B65AF /* iAppInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAppInfos.m; sourceTree = "<group>"; };
+		C29315FD1866448F005B65AF /* iAppInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAppInfos.h; sourceTree = "<group>"; };
 		C29315FF18709D4D005B65AF /* JMOLogMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMOLogMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				C29315FF18709D4D005B65AF /* JMOLogMacro.h */,
-				C29315FD1866448F005B65AF /* AppInformationsManager.h */,
-				C29315FC1866448F005B65AF /* AppInformationsManager.m */,
+				C29315FD1866448F005B65AF /* iAppInfos.h */,
+				C29315FC1866448F005B65AF /* iAppInfos.m */,
 				C2209C59191E1F1300C4BA60 /* MobileProvisionning */,
 				C2209C5A191E1F3400C4BA60 /* DevicePower */,
 				C2209C5B191E1F4500C4BA60 /* SDKinfos */,
@@ -357,7 +357,7 @@
 				C29315F21866445D005B65AF /* UIDevice+iAppInfos.m in Sources */,
 				C29315F91866446B005B65AF /* JMOViewControllerProvisioningDetails.m in Sources */,
 				C29315C81866438A005B65AF /* JMOViewController.m in Sources */,
-				C29315FE1866448F005B65AF /* AppInformationsManager.m in Sources */,
+				C29315FE1866448F005B65AF /* iAppInfos.m in Sources */,
 				C29315FA1866446B005B65AF /* JMOTableViewController.m in Sources */,
 				C29315EF1866445D005B65AF /* JMOMobileProvisionning.m in Sources */,
 				C29315C21866438A005B65AF /* JMOAppDelegate.m in Sources */,

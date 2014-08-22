@@ -9,7 +9,7 @@
 #import "DemosViewController.h"
 #import "JMOViewController.h"
 #import "JMOLogMacro.h"
-#import "AppInformationsManager.h"
+#import "iAppInfos.h"
 
 @interface DemosViewController ()
 
@@ -30,7 +30,7 @@
     [self.navigationController pushViewController:vc animated:YES];
      */
     
-    JMOLog(@"%@",[AppInformationsManager sharedManager]);
+    JMOLog(@"%@",[iAppInfos sharedInfo]);
 }
 
 @end

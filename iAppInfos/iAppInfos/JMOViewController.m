@@ -12,7 +12,7 @@
 #import "JMOCell.h"
 #import "JMOLogMacro.h"
 
-#import "AppInformationsManager.h"
+#import "iAppInfos.h"
 
 #define CustomKey1 @"CustomKey1"
 
@@ -29,8 +29,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"iAppInfos";
     
-    [[AppInformationsManager sharedManager] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
-    self.properties = [[AppInformationsManager sharedManager] filteredKeys];
+    [[iAppInfos sharedInfo] addCustomValue:@"This is a custom value" forCustomKey:CustomKey1];
+    self.properties = [[iAppInfos sharedInfo] filteredKeys];
     self.tableView.dataSource = self;
 }
 
@@ -46,7 +46,7 @@
     static NSString *CellIdentifier = @"JMOCell";
     JMOCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSString *key = [self.properties objectAtIndex:indexPath.row];
-    id info = [[AppInformationsManager sharedManager] infoForKey:key];
+    id info = [[iAppInfos sharedInfo] infoForKey:key];
     
     cell.labelKey.text = key;
     
@@ -78,7 +78,7 @@
     NSString *key = [self.properties objectAtIndex:indexPath.row];
     
     if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
-        JMOMobileProvisionning *info = [[AppInformationsManager sharedManager] infoForKey:key];
+        JMOMobileProvisionning *info = [[iAppInfos sharedInfo] infoForKey:key];
 
         if (info == nil) {
             return;
@@ -92,7 +92,7 @@
 
 #pragma mark - AppInformationsManagerDatasource
 
-- (NSArray *)desiredKeysForAppVersionManager:(AppInformationsManager *)manager
+- (NSArray *)desiredKeysForAppVersionManager:(iAppInfos *)manager
 {
     return @[AppVersionManagerKeyTargetedVersion,
              AppVersionManagerKeyYouriOSVersion,
@@ -111,13 +111,13 @@
              CustomKey1];
 }
 
-- (NSString *)getWSConfigurationForAppVersionManager:(AppInformationsManager *)manager
+- (NSString *)getWSConfigurationForAppVersionManager:(iAppInfos *)manager
 {
     JMOLog(@"Return WS url ? or something to identified your WS configuration");
     return @"Dev";
 }
 
-- (NSString *)getpushTokenForAppVersionManager:(AppInformationsManager *)manager
+- (NSString *)getpushTokenForAppVersionManager:(iAppInfos *)manager
 {
     JMOLog(@"Are you storing the token somewhere?");
     return @"";

@@ -1,12 +1,12 @@
 //
-//  AppInformationsManager.m
+//  iAppInfos.m
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
 //  Copyright (c) 2013 Jerome Morissard. All rights reserved.
 //
 
-#import "AppInformationsManager.h"
+#import "iAppInfos.h"
 
 #import "UIApplication+iAppInfos.h"
 #import "NSDictionary+iAppInfos.h"
@@ -16,20 +16,20 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
 
-@interface AppInformationsManager ()
+@interface iAppInfos ()
 @property (strong, nonatomic) NSMutableDictionary *customValues;
 @end
 
-@implementation AppInformationsManager
+@implementation iAppInfos
 
 #define MB (1024*1024)
 #define GB (MB*1024)
 
 #pragma mark Singleton Methods
 
-+ (instancetype)sharedManager
++ (instancetype)sharedInfo
 {
-    static AppInformationsManager *sharedMyManager = nil;
+    static iAppInfos *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
@@ -55,7 +55,7 @@
     JMOMobileProvisionning *mobileProvi = nil;
     [str appendFormat:@"\n\t#Global infos\n"];
     for (NSString *key in keys) {
-        id info = [[AppInformationsManager sharedManager] infoForKey:key];
+        id info = [[iAppInfos sharedInfo] infoForKey:key];
         if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
              mobileProvi = (JMOMobileProvisionning *)info;
         }
@@ -299,7 +299,7 @@ vm_size_t memoryUsedByApp(void)
     [str appendString:@"<TABLE>"];
     
     for (NSString *key in keys) {
-        id info = [[AppInformationsManager sharedManager] infoForKey:key];
+        id info = [[iAppInfos sharedInfo] infoForKey:key];
         if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
             JMOMobileProvisionning *mobileProvi = (JMOMobileProvisionning *)info;
             [str appendFormat:@"<TR><TD>%@</TD><TD>%@</TD></TR>", key, mobileProvi.teamName];

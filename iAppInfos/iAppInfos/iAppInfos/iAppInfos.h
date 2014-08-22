@@ -1,5 +1,5 @@
 //
-//  AppInformationsManager.h
+//  iAppInfos.h
 //  iAppInfos
 //
 //  Created by Jerome Morissard on 11/21/13.
@@ -29,7 +29,7 @@
 #define AppVersionManagerKeyWSConfiguration             @"WSConfiguration"  //From Datasource
 #define AppVersionManagerKeyPushToken                   @"PushToken" //From Datasource
 
-@interface AppInformationsManager : NSObject
+@interface iAppInfos : NSObject
 
 @property (strong, readonly, nonatomic) NSString *targetedVersion;
 @property (strong, readonly, nonatomic) NSString *currentOSVersion;
@@ -50,7 +50,7 @@
 @property (strong, nonatomic) NSArray *filteredKeys;
 
 
-+ (instancetype)sharedManager;
++ (instancetype)sharedInfo;
 - (void)addCustomValue:(NSString *)value forCustomKey:(NSString *)key;
 - (id)infoForKey:(NSString *)key;
 - (NSString *)htmlDescriptionWithKeys:(NSArray *)keys;
