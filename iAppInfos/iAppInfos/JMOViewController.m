@@ -62,7 +62,11 @@
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.labelInfo.text = (NSString *)info;
+        if ([info isKindOfClass:[NSString class]]) {
+            cell.labelInfo.text = (NSString *)info;
+        } else {
+            cell.labelInfo.text = [NSString stringWithFormat:@"%@ Mo",info];
+        }
     }
     return cell;
 }

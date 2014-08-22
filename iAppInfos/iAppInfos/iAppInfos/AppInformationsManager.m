@@ -59,9 +59,11 @@
         if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
              mobileProvi = (JMOMobileProvisionning *)info;
         }
-        else {
+        else if ([key isEqualToString:AppVersionManagerKeyMemoryUseByApp]) {
+            [str appendFormat:@"\t\t%@\t%@ MB\n", key, info];
+        } else {
             [str appendFormat:@"\t\t%@\t%@\n", key, info];
-        }
+        }        
     }
     
     if (nil != mobileProvi) {
@@ -98,9 +100,21 @@
 - (NSInteger)freeMemorySpace
 {
     unsigned long freeSpace = machFreeMemory();
+    return freeSpace / (1024 * 1024);
+}
+
+- (NSInteger)freeMemorySpacePourcent
+{
+    unsigned long freeSpace = machFreeMemory();
     unsigned long long totalMemory = [[NSProcessInfo processInfo] physicalMemory];
     CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
     return (NSInteger)(100*pourcent);
+}
+
+- (NSInteger)memoryUsedByApp
+{
+    unsigned long freeSpace = memoryUsedByApp();
+    return freeSpace / (1024 * 1024);
 }
 
 - (NSString *)operatorName
@@ -156,7 +170,7 @@
 - (NSArray *)filteredKeys
 {
     if (nil == _filteredKeys) {
-            return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
+            return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory,AppVersionManagerKeyMemoryUseByApp, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
     }
     return _filteredKeys;
 }
@@ -191,15 +205,19 @@ vm_size_t machFreeMemory(void)
     return vm_stat.free_count * pagesize;
 }
 
-#pragma mark - Public 
+vm_size_t memoryUsedByApp(void)
+{
+    struct task_basic_info info;
+    mach_msg_type_number_t size = sizeof(info);
+    kern_return_t kerr = task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t) &info, &size);
+    if (kerr == KERN_SUCCESS) {
+        return info.resident_size;
+    }
+    
+    return -1;
+}
 
-/*
- #define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
- #define AppVersionManagerKeyGraphicalPerformance        @"devicePowerInfo"
- #define AppVersionManagerKeyFreeDiskSpace               @"freeDiskSpace"
- #define AppVersionManagerKeyBatteryLevel                @"batteryLevel"
- #define AppVersionManagerKeyMobileProvisionning         @"mobileProvisionning"
- */
+#pragma mark - Public 
 
 - (id)infoForKey:(NSString *)key
 {
@@ -247,6 +265,10 @@ vm_size_t machFreeMemory(void)
         CGFloat pourcent = (CGFloat)freeSpace/totalMemory;
         return [NSString stringWithFormat:@"%@ (%d%%)",[self.class memoryFormatter:freeSpace],(int)(100*pourcent)];
     }
+    else if ([key isEqualToString:AppVersionManagerKeyMemoryUseByApp]) {
+        unsigned long memoryUseByApp = memoryUsedByApp();
+        return @(memoryUseByApp/(1024 * 1024));
+    }
     else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
         return [self operatorName];
     }
@@ -280,10 +302,15 @@ vm_size_t machFreeMemory(void)
         id info = [[AppInformationsManager sharedManager] infoForKey:key];
         if ([key isEqualToString:AppVersionManagerKeyMobileProvisionning]) {
             JMOMobileProvisionning *mobileProvi = (JMOMobileProvisionning *)info;
-            [str appendFormat:@"<TR><TD>%@</TD><TD>%@</TD></TR>", key, mobileProvi.teamName ];
+            [str appendFormat:@"<TR><TD>%@</TD><TD>%@</TD></TR>", key, mobileProvi.teamName];
         }
         else {
-            [str appendFormat:@"<TR><TD>%@</TD><TD>%@</TD></TR>", key, info];
+            if ([key isEqualToString:AppVersionManagerKeyMemoryUseByApp]) {
+                [str appendFormat:@"<TR><TD>%@</TD><TD>%@ MB</TD></TR>", key, info];
+                
+            } else {
+                [str appendFormat:@"<TR><TD>%@</TD><TD>%@</TD></TR>", key, info];
+            }
         }
     }
     

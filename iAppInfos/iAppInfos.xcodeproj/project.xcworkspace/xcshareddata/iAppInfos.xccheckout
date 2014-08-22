@@ -10,29 +10,29 @@
 	<string>iAppInfos</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9775FD9D-F4A3-42F1-AE3A-0FDEDC38B51B</key>
+		<key>30ED34E3C184EFD29C9C0C1173F73792D60AECB7</key>
 		<string>https://github.com/leverdeterre/iAppInfos.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>iAppInfos/iAppInfos.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9775FD9D-F4A3-42F1-AE3A-0FDEDC38B51B</key>
+		<key>30ED34E3C184EFD29C9C0C1173F73792D60AECB7</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/leverdeterre/iAppInfos.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9775FD9D-F4A3-42F1-AE3A-0FDEDC38B51B</string>
+	<string>30ED34E3C184EFD29C9C0C1173F73792D60AECB7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9775FD9D-F4A3-42F1-AE3A-0FDEDC38B51B</string>
+			<string>30ED34E3C184EFD29C9C0C1173F73792D60AECB7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iAppInfos</string>
 		</dict>

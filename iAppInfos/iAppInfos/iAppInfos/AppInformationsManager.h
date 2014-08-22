@@ -16,6 +16,7 @@
 #define AppVersionManagerKeyCFBundleVersion             @"appVersion"
 #define AppVersionManagerKeyCFBundleShortVersionString  @"shortAppVersion"
 #define AppVersionManagerKeyFreeMemory                  @"freeMemorySpace"
+#define AppVersionManagerKeyMemoryUseByApp              @"memoryUsedByApp"
 #define AppVersionManagerKeyOperator                    @"operatorName"
 #define AppVersionManagerKeyYourDeviceModel             @"deviceModelName"
 #define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
@@ -34,7 +35,9 @@
 @property (strong, readonly, nonatomic) NSString *currentOSVersion;
 @property (strong, readonly, nonatomic) NSString *appVersion;
 @property (strong, readonly, nonatomic) NSString *shortAppVersion;
-@property (assign, readonly, nonatomic) NSInteger freeMemorySpace; //in pourcent
+@property (assign, readonly, nonatomic) NSInteger freeMemorySpace; //in Mo
+@property (assign, readonly, nonatomic) NSInteger freeMemorySpacePourcent; //in Pourcent
+@property (assign, readonly, nonatomic) NSInteger memoryUsedByApp; //in Mo
 @property (strong, readonly, nonatomic) NSString *operatorName;
 @property (strong, readonly, nonatomic) NSString *deviceModelName;
 @property (assign, readonly, nonatomic) UIDeviceModelType deviceModelType;
