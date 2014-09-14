@@ -24,6 +24,9 @@ extern NSString * const UIDeviceModeliPhone5C_Global;
 extern NSString * const UIDeviceModeliPhone5S_GSM;
 extern NSString * const UIDeviceModeliPhone5S_Global;
 
+extern NSString * const UIDeviceModeliPhone6;
+extern NSString * const UIDeviceModeliPhone6Plus;
+
 extern NSString * const UIDeviceModeliPodTouch1G;
 extern NSString * const UIDeviceModeliPodTouch2G;
 extern NSString * const UIDeviceModeliPodTouch3G;

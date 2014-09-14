@@ -27,6 +27,9 @@ NSString * const UIDeviceModeliPhone5C_Global               = @"iPhone 5C (Globa
 NSString * const UIDeviceModeliPhone5S_GSM                  = @"iPhone 5S (GSM)";
 NSString * const UIDeviceModeliPhone5S_Global               = @"iPhone 5S (Global)";
 
+NSString * const UIDeviceModeliPhone6                       = @"iPhone 6";
+NSString * const UIDeviceModeliPhone6Plus                   = @"iPhone 6 Plus";
+
 NSString * const UIDeviceModeliPodTouch1G                   = @"iPod Touch 1G";
 NSString * const UIDeviceModeliPodTouch2G                   = @"iPod Touch 2G";
 NSString * const UIDeviceModeliPodTouch3G                   = @"iPod Touch 3G";
@@ -90,11 +93,15 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPhone5,4"])    return UIDeviceModeliPhone5C_Global;
     if ([systInfo isEqualToString:@"iPhone6,1"])    return UIDeviceModeliPhone5S_GSM;
     if ([systInfo isEqualToString:@"iPhone6,2"])    return UIDeviceModeliPhone5S_Global;
+    if ([systInfo isEqualToString:@"iPhone7,1"])    return UIDeviceModeliPhone6Plus;
+    if ([systInfo isEqualToString:@"iPhone7,2"])    return UIDeviceModeliPhone6;
+    
     if ([systInfo isEqualToString:@"iPod1,1"])      return UIDeviceModeliPodTouch1G;
     if ([systInfo isEqualToString:@"iPod2,1"])      return UIDeviceModeliPodTouch2G;
     if ([systInfo isEqualToString:@"iPod3,1"])      return UIDeviceModeliPodTouch3G;
     if ([systInfo isEqualToString:@"iPod4,1"])      return UIDeviceModeliPodTouch4G;
     if ([systInfo isEqualToString:@"iPod5,1"])      return UIDeviceModeliPodTouch5G;
+    
     if ([systInfo isEqualToString:@"iPad1,1"])      return UIDeviceModeliPad;
     if ([systInfo isEqualToString:@"iPad2,1"])      return UIDeviceModeliPad2_Wifi;
     if ([systInfo isEqualToString:@"iPad2,2"])      return UIDeviceModeliPad2_GSM;
@@ -115,6 +122,7 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
     if ([systInfo isEqualToString:@"iPad4,3"])      return UIDeviceModeliPadAir_4GCellular;
     if ([systInfo isEqualToString:@"iPad4,6"])      return UIDeviceModeliPadMiniRetina4G_Cellular;
+    
     if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
     if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulator;
     
