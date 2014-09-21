@@ -25,7 +25,7 @@
 #define MB (1024*1024)
 #define GB (MB*1024)
 
-#pragma mark Singleton Methods
+#pragma mark - Singleton Methods
 
 + (instancetype)sharedInfo
 {
@@ -36,6 +36,8 @@
     });
     return sharedMyManager;
 }
+
+#pragma mark - LifeCycle
 
 - (instancetype)init
 {
@@ -75,7 +77,7 @@
     return str;
 }
 
-#pragma overrided getters
+#pragma overrided - getters
 
 - (NSString *)targetedVersion
 {
@@ -144,6 +146,15 @@
     return [UIApplication jmo_iOSSDKVersion];
 }
 
+- (NSString *)compilationArchitecture
+{
+#if __LP64__
+    return @"64bits";
+#else
+    return @"32bits";
+#endif
+}
+
 - (NSString *)freeDiskSpace
 {
     long long freeSpace = [[[[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil] objectForKey:NSFileSystemFreeSize] longLongValue];
@@ -170,7 +181,7 @@
 - (NSArray *)filteredKeys
 {
     if (nil == _filteredKeys) {
-            return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory,AppVersionManagerKeyMemoryUseByApp, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
+            return @[AppVersionManagerKeyTargetedVersion,AppVersionManagerKeyYouriOSVersion,AppVersionManagerKeyYourDeviceModel,AppVersionManagerKeyCompilationSDK,AppVersionManagerKeyCompilationArchitecture, AppVersionManagerKeyCFBundleVersion, AppVersionManagerKeyCFBundleShortVersionString, AppVersionManagerKeyFreeDiskSpace,AppVersionManagerKeyFreeMemory,AppVersionManagerKeyMemoryUseByApp, AppVersionManagerKeyBatteryLevel,AppVersionManagerKeyMobileProvisionning, AppVersionManagerKeyPushToken,AppVersionManagerKeyWSConfiguration];
     }
     return _filteredKeys;
 }
@@ -232,6 +243,9 @@ vm_size_t memoryUsedByApp(void)
     }
     else if ([key isEqualToString:AppVersionManagerKeyCompilationSDK]) {
         return [self compilationSDK];
+    }
+    else if ([key isEqualToString:AppVersionManagerKeyCompilationArchitecture]){
+        return [self compilationArchitecture];
     }
     /*else if ([key isEqualToString:AppVersionManagerKeyWSConfiguration]) {
         return [self wSConfiguration];

@@ -22,6 +22,8 @@
 #define AppVersionManagerKeyYourDeviceType              @"deviceModelType"
 #define AppVersionManagerKeyGraphicalPerformance        @"devicePowerInfo"
 #define AppVersionManagerKeyCompilationSDK              @"compilationSDK"
+#define AppVersionManagerKeyCompilationArchitecture     @"compilationArchitecture"
+
 #define AppVersionManagerKeyFreeDiskSpace               @"freeDiskSpace"
 #define AppVersionManagerKeyBatteryLevel                @"batteryLevel"
 #define AppVersionManagerKeyMobileProvisionning         @"mobileProvisionning"
@@ -46,6 +48,7 @@
 @property (strong, readonly, nonatomic) NSString *freeDiskSpace;
 @property (assign, readonly, nonatomic) NSInteger batteryLevel; //in pourcent
 @property (strong, readonly, nonatomic) JMOMobileProvisionning *mobileProvisionning;
+@property (strong, readonly, nonatomic) NSString *compilationArchitecture;
 
 @property (strong, nonatomic) NSArray *filteredKeys;
 
