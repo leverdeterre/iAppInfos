@@ -91,12 +91,12 @@
 
 - (NSString *)appVersion
 {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
-- (NSString *)shortAppVersion
+- (NSString *)buildRevision
 {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 }
 
 - (NSInteger)freeMemorySpace
@@ -254,7 +254,7 @@ vm_size_t memoryUsedByApp(void)
         return [self appVersion];
     }
     else if ([key isEqualToString:AppVersionManagerKeyCFBundleShortVersionString]) {
-        return [self shortAppVersion];
+        return [self buildRevision];
     }
     else if ([key isEqualToString:AppVersionManagerKeyFreeDiskSpace]) {
         return [self freeDiskSpace];
