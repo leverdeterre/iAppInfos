@@ -85,6 +85,7 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPhone1,2"])    return UIDeviceModeliPhone3G;
     if ([systInfo isEqualToString:@"iPhone2,1"])    return UIDeviceModeliPhone3GS;
     if ([systInfo isEqualToString:@"iPhone3,1"])    return UIDeviceModeliPhone4;
+    if ([systInfo isEqualToString:@"iPhone3,2"])    return UIDeviceModeliPhone4;
     if ([systInfo isEqualToString:@"iPhone3,3"])    return UIDeviceModelVerizoniPhone4;
     if ([systInfo isEqualToString:@"iPhone4,1"])    return UIDeviceModeliPhone4S;
     if ([systInfo isEqualToString:@"iPhone5,1"])    return UIDeviceModeliPhone5_GSM;
