@@ -108,20 +108,20 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPad2,2"])      return UIDeviceModeliPad2_GSM;
     if ([systInfo isEqualToString:@"iPad2,3"])      return UIDeviceModeliPad2_CDMA;
     if ([systInfo isEqualToString:@"iPad2,4"])      return UIDeviceModeliPad2;
+    if ([systInfo isEqualToString:@"iPad2,5"])      return UIDeviceModeliPadMini1G_Wifi;
+    if ([systInfo isEqualToString:@"iPad2,6"])      return UIDeviceModeliPadMini1G_GSM;
+    if ([systInfo isEqualToString:@"iPad2,7"])      return UIDeviceModeliPadMini1G_GSM_CDMA;
     if ([systInfo isEqualToString:@"iPad3,1"])      return UIDeviceModeliPad3G_Wifi;
     if ([systInfo isEqualToString:@"iPad3,2"])      return UIDeviceModeliPad3G_4G;
     if ([systInfo isEqualToString:@"iPad3,3"])      return UIDeviceModeliPad3G_4G;
     if ([systInfo isEqualToString:@"iPad3,4"])      return UIDeviceModeliPad4G_Wifi;
     if ([systInfo isEqualToString:@"iPad3,5"])      return UIDeviceModeliPad4G_GSM;
     if ([systInfo isEqualToString:@"iPad3,6"])      return UIDeviceModeliPad4G_GSM_CDMA;
-    if ([systInfo isEqualToString:@"iPad2,5"])      return UIDeviceModeliPadMini1G_Wifi;
-    if ([systInfo isEqualToString:@"iPad2,6"])      return UIDeviceModeliPadMini1G_GSM;
-    if ([systInfo isEqualToString:@"iPad2,7"])      return UIDeviceModeliPadMini1G_GSM_CDMA;
-    if ([systInfo isEqualToString:@"iPad4,4"])      return UIDeviceModeliPadMiniRetina2G_Wifi;
-    if ([systInfo isEqualToString:@"iPad4,5"])      return UIDeviceModeliPadMiniRetina2G_Cellular;
     if ([systInfo isEqualToString:@"iPad4,1"])      return UIDeviceModeliPadAir_Wifi;
     if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
     if ([systInfo isEqualToString:@"iPad4,3"])      return UIDeviceModeliPadAir_4GCellular;
+    if ([systInfo isEqualToString:@"iPad4,4"])      return UIDeviceModeliPadMiniRetina2G_Wifi;
+    if ([systInfo isEqualToString:@"iPad4,5"])      return UIDeviceModeliPadMiniRetina2G_Cellular;
     if ([systInfo isEqualToString:@"iPad4,6"])      return UIDeviceModeliPadMiniRetina4G_Cellular;
     
     if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
