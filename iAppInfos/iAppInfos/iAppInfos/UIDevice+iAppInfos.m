@@ -134,7 +134,10 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
 + (UIDeviceModelType)jmo_deviceModelType {
     NSString *modelName = [self jmo_modelName];
 
-    if ([modelName rangeOfString:@"iPhone"].location != NSNotFound) {
+    if ([modelName isEqualToString:UIDeviceModelSimulator]) {
+        return UIDeviceModelTypeSimulator;
+    }
+    else if ([modelName rangeOfString:@"iPhone"].location != NSNotFound) {
         return UIDeviceModelTypeiPhone;
     }
     else if ([modelName rangeOfString:@"iPod"].location != NSNotFound) {
