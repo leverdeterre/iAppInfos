@@ -86,6 +86,3 @@ See the sample, a very classic TableView Controller (JMOViewController)
 #define AppVersionManagerKeyBatteryLevel                @"batteryLevel"
 #define AppVersionManagerKeyMobileProvisionning         @"mobileProvisionning"
 ```
-
-
-
