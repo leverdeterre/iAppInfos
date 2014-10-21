@@ -57,6 +57,11 @@ NSString * const UIDeviceModeliPadAir_Cellular              = @"iPad Air (Cellul
 NSString * const UIDeviceModeliPadAir_4GCellular            = @"iPad Air (4G)";
 NSString * const UIDeviceModeliPadMiniRetina4G_Cellular     = @"iPad mini (4G)";
 
+NSString * const UIDeviceModeliPadAir2_Wifi                 = @"iPad Air 2 (WiFi)";
+NSString * const UIDeviceModeliPadAir2_Cellular             = @"iPad Air 2 (Cellular)";
+NSString * const UIDeviceModeliPadMiniRetina3_Wifi          = @"iPad mini 3 Retina (Wifi)";
+NSString * const UIDeviceModeliPadMiniRetina3_Cellular      = @"iPad mini 3 Retina (Cellular)";
+
 NSString * const UIDeviceModelSimulatorI386                 = @"iPhone Simulator (i386)";
 NSString * const UIDeviceModelSimulatorX86_64               = @"iPhone Simulator (x86_64)";
 NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator";
@@ -124,12 +129,17 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
     if ([systInfo isEqualToString:@"iPad4,5"])      return UIDeviceModeliPadMiniRetina2G_Cellular;
     if ([systInfo isEqualToString:@"iPad4,6"])      return UIDeviceModeliPadMiniRetina4G_Cellular;
     
+    if ([systInfo isEqualToString:@"iPad4,7"])      return UIDeviceModeliPadMiniRetina3_Wifi;
+    if ([systInfo isEqualToString:@"iPad4,8"])      return UIDeviceModeliPadMiniRetina3_Cellular;
+    if ([systInfo isEqualToString:@"iPad4,9"])      return UIDeviceModeliPadMiniRetina3_Cellular;
+    if ([systInfo isEqualToString:@"iPad5,3"])      return UIDeviceModeliPadAir2_Wifi;
+    if ([systInfo isEqualToString:@"iPad5,4"])      return UIDeviceModeliPadAir2_Cellular;
+    
     if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
     if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulator;
     
     return systInfo;
 }
-
 
 + (UIDeviceModelType)jmo_deviceModelType {
     NSString *modelName = [self jmo_modelName];

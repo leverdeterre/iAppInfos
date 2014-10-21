@@ -54,6 +54,11 @@ extern NSString * const UIDeviceModeliPadAir_Cellular;
 extern NSString * const UIDeviceModeliPadAir_4GCellular;
 extern NSString * const UIDeviceModeliPadMiniRetina4G_Cellular;
 
+extern NSString * const UIDeviceModeliPadAir2_Wifi;
+extern NSString * const UIDeviceModeliPadAir2_Cellular;
+extern NSString * const UIDeviceModeliPadMiniRetina3_Wifi;
+extern NSString * const UIDeviceModeliPadMiniRetina3_Cellular;
+
 extern NSString * const UIDeviceModelSimulatorI386;
 extern NSString * const UIDeviceModelSimulatorX86_64;
 extern NSString * const UIDeviceModelSimulator;
