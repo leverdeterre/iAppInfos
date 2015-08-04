@@ -5,6 +5,10 @@ iAppInfos
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/leverdeterre/iAppInfos/blob/master/LICENCE)
 [![Cocoapods](http://img.shields.io/cocoapods/v/iAppInfos.svg)](https://github.com/leverdeterre/iAppInfos)
 
+## My other works
+
+[http://leverdeterre.github.io] (http://leverdeterre.github.io)
+
 iAppInfos allows a easy access to ALL important App informations.  
 
 ![Image](demo.png)
