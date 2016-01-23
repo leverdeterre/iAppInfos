@@ -43,7 +43,6 @@
 @property (strong, readonly, nonatomic) NSString *operatorName;
 @property (strong, readonly, nonatomic) NSString *deviceModelName;
 @property (assign, readonly, nonatomic) UIDeviceModelType deviceModelType;
-@property (strong, readonly, nonatomic) JMODevicePowerInfos *devicePowerInfo;
 @property (strong, readonly, nonatomic) NSString *compilationSDK;
 @property (strong, readonly, nonatomic) NSString *freeDiskSpace;
 @property (assign, readonly, nonatomic) NSInteger batteryLevel; //in pourcent

@@ -7,65 +7,8 @@
 //
 
 #import "UIDevice+iAppInfos.h"
-#import "JMODevicePowerInfos.h"
 
 #include <sys/sysctl.h>
-
-NSString * const UIDeviceModeliPhone1G                      = @"iPhone 1G";
-NSString * const UIDeviceModeliPhone3G                      = @"iPhone 3G";
-NSString * const UIDeviceModeliPhone3GS                     = @"iPhone 3GS";
-
-NSString * const UIDeviceModeliPhone4                       = @"iPhone 4";
-NSString * const UIDeviceModelVerizoniPhone4                = @"Verizon iPhone 4";
-NSString * const UIDeviceModeliPhone4S                      = @"iPhone 4S";
-
-NSString * const UIDeviceModeliPhone5_GSM                   = @"iPhone 5 (GSM)";
-NSString * const UIDeviceModeliPhone5_GSM_CDMA              = @"iPhone 5 (GSM+CDMA)";
-NSString * const UIDeviceModeliPhone5C_GSM                  = @"iPhone 5C (GSM)";
-NSString * const UIDeviceModeliPhone5C_Global               = @"iPhone 5C (Global)";
-
-NSString * const UIDeviceModeliPhone5S_GSM                  = @"iPhone 5S (GSM)";
-NSString * const UIDeviceModeliPhone5S_Global               = @"iPhone 5S (Global)";
-
-NSString * const UIDeviceModeliPhone6                       = @"iPhone 6";
-NSString * const UIDeviceModeliPhone6Plus                   = @"iPhone 6 Plus";
-
-NSString * const UIDeviceModeliPodTouch1G                   = @"iPod Touch 1G";
-NSString * const UIDeviceModeliPodTouch2G                   = @"iPod Touch 2G";
-NSString * const UIDeviceModeliPodTouch3G                   = @"iPod Touch 3G";
-NSString * const UIDeviceModeliPodTouch4G                   = @"iPod Touch 4G";
-NSString * const UIDeviceModeliPodTouch5G                   = @"iPod Touch 5G";
-
-NSString * const UIDeviceModeliPad                          = @"iPad";
-NSString * const UIDeviceModeliPad2_Wifi                    = @"iPad 2 (WiFi)";
-NSString * const UIDeviceModeliPad2_GSM                     = @"iPad 2 (GSM)";
-NSString * const UIDeviceModeliPad2_CDMA                    = @"iPad 2 (CDMA)";
-NSString * const UIDeviceModeliPad2                         = @"iPad 2";
-NSString * const UIDeviceModeliPad3G_Wifi                   = @"iPad-3G (WiFi)";
-NSString * const UIDeviceModeliPad3G_4G                     = @"iPad-3G (4G)";
-NSString * const UIDeviceModeliPad4G_Wifi                   = @"iPad-4G (WiFi)";
-NSString * const UIDeviceModeliPad4G_GSM                    = @"iPad-4G (GSM)";
-NSString * const UIDeviceModeliPad4G_GSM_CDMA               = @"iPad-4G (GSM+CDMA)";
-
-NSString * const UIDeviceModeliPadMini1G_Wifi               = @"iPad mini-1G (WiFi)";
-NSString * const UIDeviceModeliPadMini1G_GSM                = @"iPad mini-1G (GSM)";
-NSString * const UIDeviceModeliPadMini1G_GSM_CDMA           = @"iPad mini-1G (GSM+CDMA)";
-NSString * const UIDeviceModeliPadMiniRetina2G_Wifi         = @"iPad mini 2G Retina (WiFi)";
-NSString * const UIDeviceModeliPadMiniRetina2G_Cellular     = @"iPad mini 2G Retina (Cellular)";
-NSString * const UIDeviceModeliPadAir_Wifi                  = @"iPad Air (WiFi)";
-NSString * const UIDeviceModeliPadAir_Cellular              = @"iPad Air (Cellular)";
-NSString * const UIDeviceModeliPadAir_4GCellular            = @"iPad Air (4G)";
-NSString * const UIDeviceModeliPadMiniRetina4G_Cellular     = @"iPad mini (4G)";
-
-NSString * const UIDeviceModeliPadAir2_Wifi                 = @"iPad Air 2 (WiFi)";
-NSString * const UIDeviceModeliPadAir2_Cellular             = @"iPad Air 2 (Cellular)";
-NSString * const UIDeviceModeliPadMiniRetina3_Wifi          = @"iPad mini 3 Retina (Wifi)";
-NSString * const UIDeviceModeliPadMiniRetina3_Cellular      = @"iPad mini 3 Retina (Cellular)";
-
-NSString * const UIDeviceModelSimulatorI386                 = @"iPhone Simulator (i386)";
-NSString * const UIDeviceModelSimulatorX86_64               = @"iPhone Simulator (x86_64)";
-NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator";
-
 
 @implementation UIDevice (iAppInfos)
 
@@ -86,83 +29,156 @@ NSString * const UIDeviceModelSimulator                     = @"iPhone Simulator
 + (NSString *)jmo_modelName
 {
     NSString *systInfo = [self jmo_getSysInfo];
-    if ([systInfo isEqualToString:@"iPhone1,1"])    return UIDeviceModeliPhone1G;
-    if ([systInfo isEqualToString:@"iPhone1,2"])    return UIDeviceModeliPhone3G;
-    if ([systInfo isEqualToString:@"iPhone2,1"])    return UIDeviceModeliPhone3GS;
-    if ([systInfo isEqualToString:@"iPhone3,1"])    return UIDeviceModeliPhone4;
-    if ([systInfo isEqualToString:@"iPhone3,2"])    return UIDeviceModeliPhone4;
-    if ([systInfo isEqualToString:@"iPhone3,3"])    return UIDeviceModelVerizoniPhone4;
-    if ([systInfo isEqualToString:@"iPhone4,1"])    return UIDeviceModeliPhone4S;
-    if ([systInfo isEqualToString:@"iPhone5,1"])    return UIDeviceModeliPhone5_GSM;
-    if ([systInfo isEqualToString:@"iPhone5,2"])    return UIDeviceModeliPhone5_GSM_CDMA;
-    if ([systInfo isEqualToString:@"iPhone5,3"])    return UIDeviceModeliPhone5C_GSM;
-    if ([systInfo isEqualToString:@"iPhone5,4"])    return UIDeviceModeliPhone5C_Global;
-    if ([systInfo isEqualToString:@"iPhone6,1"])    return UIDeviceModeliPhone5S_GSM;
-    if ([systInfo isEqualToString:@"iPhone6,2"])    return UIDeviceModeliPhone5S_Global;
-    if ([systInfo isEqualToString:@"iPhone7,1"])    return UIDeviceModeliPhone6Plus;
-    if ([systInfo isEqualToString:@"iPhone7,2"])    return UIDeviceModeliPhone6;
     
-    if ([systInfo isEqualToString:@"iPod1,1"])      return UIDeviceModeliPodTouch1G;
-    if ([systInfo isEqualToString:@"iPod2,1"])      return UIDeviceModeliPodTouch2G;
-    if ([systInfo isEqualToString:@"iPod3,1"])      return UIDeviceModeliPodTouch3G;
-    if ([systInfo isEqualToString:@"iPod4,1"])      return UIDeviceModeliPodTouch4G;
-    if ([systInfo isEqualToString:@"iPod5,1"])      return UIDeviceModeliPodTouch5G;
+    if ([systInfo isEqualToString:@"iPhone1,1"])    return @"iPhone 2G";
+    if ([systInfo isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
+    if ([systInfo isEqualToString:@"iPhone2,1"])    return @"iPhone 3G[S]";
+    if ([systInfo isEqualToString:@"iPhone3,1"])    return @"iPhone 4 (GSM)";
+    if ([systInfo isEqualToString:@"iPhone3,2"])    return @"iPhone 4 (GSM / 2012)";
+    if ([systInfo isEqualToString:@"iPhone3,3"])    return @"iPhone 4 (CDMA)";
+    if ([systInfo isEqualToString:@"iPhone4,1"])    return @"iPhone 4[S]";
+    if ([systInfo isEqualToString:@"iPhone5,1"])    return @"iPhone 5 (GSM)";
+    if ([systInfo isEqualToString:@"iPhone5,2"])    return @"iPhone 5 (Global)";
+    if ([systInfo isEqualToString:@"iPhone5,3"])    return @"iPhone 5c (GSM)";
+    if ([systInfo isEqualToString:@"iPhone5,4"])    return @"iPhone 5c (Global)";
+    if ([systInfo isEqualToString:@"iPhone6,1"])    return @"iPhone 5s (GSM)";
+    if ([systInfo isEqualToString:@"iPhone6,2"])    return @"iPhone 5s (Global)";
+    if ([systInfo isEqualToString:@"iPhone7,1"])    return @"iPhone 6+";
+    if ([systInfo isEqualToString:@"iPhone7,2"])    return @"iPhone 6";
+    if ([systInfo isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
+    if ([systInfo isEqualToString:@"iPhone8,2"])    return @"iPhone 6s+";
+
+    if ([systInfo isEqualToString:@"iPod1,1"])      return @"iPod touch 1G";
+    if ([systInfo isEqualToString:@"iPod2,1"])      return @"iPod touch 2G";
+    if ([systInfo isEqualToString:@"iPod3,1"])      return @"iPod touch 3";
+    if ([systInfo isEqualToString:@"iPod4,1"])      return @"iPod touch 4";
+    if ([systInfo isEqualToString:@"iPod5,1"])      return @"iPod touch 5";
+    if ([systInfo isEqualToString:@"iPod7,1"])      return @"iPod touch 6";
+
+    if ([systInfo isEqualToString:@"iPad1,1"])      return @"iPad 1";
+    if ([systInfo isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad2,2"])      return @"iPad 2 (GSM)";
+    if ([systInfo isEqualToString:@"iPad2,3"])      return @"iPad 2 (CDMA)";
+    if ([systInfo isEqualToString:@"iPad2,4"])      return @"iPad 2 (Mid 2012)";
+    if ([systInfo isEqualToString:@"iPad2,5"])      return @"iPad Mini (WiFi)";
+    if ([systInfo isEqualToString:@"iPad2,6"])      return @"iPad Mini (GSM)";
+    if ([systInfo isEqualToString:@"iPad2,7"])      return @"iPad Mini (Global)";
     
-    if ([systInfo isEqualToString:@"iPad1,1"])      return UIDeviceModeliPad;
-    if ([systInfo isEqualToString:@"iPad2,1"])      return UIDeviceModeliPad2_Wifi;
-    if ([systInfo isEqualToString:@"iPad2,2"])      return UIDeviceModeliPad2_GSM;
-    if ([systInfo isEqualToString:@"iPad2,3"])      return UIDeviceModeliPad2_CDMA;
-    if ([systInfo isEqualToString:@"iPad2,4"])      return UIDeviceModeliPad2;
-    if ([systInfo isEqualToString:@"iPad2,5"])      return UIDeviceModeliPadMini1G_Wifi;
-    if ([systInfo isEqualToString:@"iPad2,6"])      return UIDeviceModeliPadMini1G_GSM;
-    if ([systInfo isEqualToString:@"iPad2,7"])      return UIDeviceModeliPadMini1G_GSM_CDMA;
-    if ([systInfo isEqualToString:@"iPad3,1"])      return UIDeviceModeliPad3G_Wifi;
-    if ([systInfo isEqualToString:@"iPad3,2"])      return UIDeviceModeliPad3G_4G;
-    if ([systInfo isEqualToString:@"iPad3,3"])      return UIDeviceModeliPad3G_4G;
-    if ([systInfo isEqualToString:@"iPad3,4"])      return UIDeviceModeliPad4G_Wifi;
-    if ([systInfo isEqualToString:@"iPad3,5"])      return UIDeviceModeliPad4G_GSM;
-    if ([systInfo isEqualToString:@"iPad3,6"])      return UIDeviceModeliPad4G_GSM_CDMA;
-    if ([systInfo isEqualToString:@"iPad4,1"])      return UIDeviceModeliPadAir_Wifi;
-    if ([systInfo isEqualToString:@"iPad4,2"])      return UIDeviceModeliPadAir_Cellular;
-    if ([systInfo isEqualToString:@"iPad4,3"])      return UIDeviceModeliPadAir_4GCellular;
-    if ([systInfo isEqualToString:@"iPad4,4"])      return UIDeviceModeliPadMiniRetina2G_Wifi;
-    if ([systInfo isEqualToString:@"iPad4,5"])      return UIDeviceModeliPadMiniRetina2G_Cellular;
-    if ([systInfo isEqualToString:@"iPad4,6"])      return UIDeviceModeliPadMiniRetina4G_Cellular;
+    if ([systInfo isEqualToString:@"iPad3,1"])      return @"iPad 3 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad3,2"])      return @"iPad 3 (CDMA)";
+    if ([systInfo isEqualToString:@"iPad3,3"])      return @"iPad 3 (GSM)";
+    if ([systInfo isEqualToString:@"iPad3,4"])      return @"iPad 4 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad3,5"])      return @"iPad 4 (GSM)";
+    if ([systInfo isEqualToString:@"iPad3,6"])      return @"iPad 4 (Global)";
     
-    if ([systInfo isEqualToString:@"iPad4,7"])      return UIDeviceModeliPadMiniRetina3_Wifi;
-    if ([systInfo isEqualToString:@"iPad4,8"])      return UIDeviceModeliPadMiniRetina3_Cellular;
-    if ([systInfo isEqualToString:@"iPad4,9"])      return UIDeviceModeliPadMiniRetina3_Cellular;
-    if ([systInfo isEqualToString:@"iPad5,3"])      return UIDeviceModeliPadAir2_Wifi;
-    if ([systInfo isEqualToString:@"iPad5,4"])      return UIDeviceModeliPadAir2_Cellular;
+    if ([systInfo isEqualToString:@"iPad4,1"])      return @"iPad Air (WiFi)";
+    if ([systInfo isEqualToString:@"iPad4,2"])      return @"iPad Air (Cellular)";
+    if ([systInfo isEqualToString:@"iPad4,3"])      return @"iPad Air (China)";
+    if ([systInfo isEqualToString:@"iPad4,4"])      return @"iPad Mini 2 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad4,5"])      return @"iPad Mini 2 (Cellular)";
+    if ([systInfo isEqualToString:@"iPad4,6"])      return @"iPad Mini 2 (China)";;
+    if ([systInfo isEqualToString:@"iPad4,7"])      return @"iPad Mini 3 (WiFi)";;
+    if ([systInfo isEqualToString:@"iPad4,8"])      return @"iPad Mini 3 (Cellular)";
+    if ([systInfo isEqualToString:@"iPad4,9"])      return @"iPad Mini 3 (China)";
     
-    if ([systInfo isEqualToString:@"i386"])         return UIDeviceModelSimulator;
-    if ([systInfo isEqualToString:@"x86_64"])       return UIDeviceModelSimulator;
+    if ([systInfo isEqualToString:@"iPad5,1"])      return @"iPad Mini 4 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad5,2"])      return @"iPad Mini 4 (Cellular)";
+    if ([systInfo isEqualToString:@"iPad5,3"])      return @"iPad Air 2 (WiFi)";
+    if ([systInfo isEqualToString:@"iPad5,4"])      return @"iPad Air 2 (Cellular)";
+    
+    if ([systInfo isEqualToString:@"iPad6,7"])      return @"iPad Pro (WiFi)";
+    if ([systInfo isEqualToString:@"iPad6,8"])      return @"iPad Pro (Cellular)";
+    
+    if ([systInfo isEqualToString:@"i386"])         return @"iPhone Simulator";
+    if ([systInfo isEqualToString:@"x86_64"])       return @"iPhone Simulator";
     
     return systInfo;
 }
 
-+ (UIDeviceModelType)jmo_deviceModelType {
++ (NSString *)jmo_familyModelName
+{
+    NSString *systInfo = [self jmo_getSysInfo];
+    
+    if ([systInfo isEqualToString:@"iPhone1,1"])    return @"iPhone 2G";
+    if ([systInfo isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
+    if ([systInfo isEqualToString:@"iPhone2,1"])    return @"iPhone 3GS";
+    if ([systInfo isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
+    if ([systInfo isEqualToString:@"iPhone3,2"])    return @"iPhone 4";
+    if ([systInfo isEqualToString:@"iPhone3,3"])    return @"iPhone 4";
+    if ([systInfo isEqualToString:@"iPhone4,1"])    return @"iPhone 4S";
+    if ([systInfo isEqualToString:@"iPhone5,1"])    return @"iPhone 5";
+    if ([systInfo isEqualToString:@"iPhone5,2"])    return @"iPhone 5";
+    if ([systInfo isEqualToString:@"iPhone5,3"])    return @"iPhone 5c";
+    if ([systInfo isEqualToString:@"iPhone5,4"])    return @"iPhone 5c";
+    if ([systInfo isEqualToString:@"iPhone6,1"])    return @"iPhone 5s";
+    if ([systInfo isEqualToString:@"iPhone6,2"])    return @"iPhone 5s";
+    if ([systInfo isEqualToString:@"iPhone7,1"])    return @"iPhone 6+";
+    if ([systInfo isEqualToString:@"iPhone7,2"])    return @"iPhone 6";
+    if ([systInfo isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
+    if ([systInfo isEqualToString:@"iPhone8,2"])    return @"iPhone 6s+";
+    
+    if ([systInfo isEqualToString:@"iPod1,1"])      return @"iPod touch 1G";
+    if ([systInfo isEqualToString:@"iPod2,1"])      return @"iPod touch 2G";
+    if ([systInfo isEqualToString:@"iPod3,1"])      return @"iPod touch 3";
+    if ([systInfo isEqualToString:@"iPod4,1"])      return @"iPod touch 4";
+    if ([systInfo isEqualToString:@"iPod5,1"])      return @"iPod touch 5";
+    if ([systInfo isEqualToString:@"iPod7,1"])      return @"iPod touch 6";
+    
+    if ([systInfo isEqualToString:@"iPad1,1"])      return @"iPad 1";
+    if ([systInfo isEqualToString:@"iPad2,1"])      return @"iPad 2";
+    if ([systInfo isEqualToString:@"iPad2,2"])      return @"iPad 2";
+    if ([systInfo isEqualToString:@"iPad2,3"])      return @"iPad 2";
+    if ([systInfo isEqualToString:@"iPad2,4"])      return @"iPad 2";
+    if ([systInfo isEqualToString:@"iPad2,5"])      return @"iPad Mini";
+    if ([systInfo isEqualToString:@"iPad2,6"])      return @"iPad Mini";
+    if ([systInfo isEqualToString:@"iPad2,7"])      return @"iPad Mini";
+    
+    if ([systInfo isEqualToString:@"iPad3,1"])      return @"iPad 3";
+    if ([systInfo isEqualToString:@"iPad3,2"])      return @"iPad 3";
+    if ([systInfo isEqualToString:@"iPad3,3"])      return @"iPad 3";
+    if ([systInfo isEqualToString:@"iPad3,4"])      return @"iPad 4";
+    if ([systInfo isEqualToString:@"iPad3,5"])      return @"iPad 4";
+    if ([systInfo isEqualToString:@"iPad3,6"])      return @"iPad 4";
+    
+    if ([systInfo isEqualToString:@"iPad4,1"])      return @"iPad Air";
+    if ([systInfo isEqualToString:@"iPad4,2"])      return @"iPad Air";
+    if ([systInfo isEqualToString:@"iPad4,3"])      return @"iPad Air";
+    if ([systInfo isEqualToString:@"iPad4,4"])      return @"iPad Mini 2";
+    if ([systInfo isEqualToString:@"iPad4,5"])      return @"iPad Mini 2";
+    if ([systInfo isEqualToString:@"iPad4,6"])      return @"iPad Mini 2";;
+    if ([systInfo isEqualToString:@"iPad4,7"])      return @"iPad Mini 3";
+    if ([systInfo isEqualToString:@"iPad4,8"])      return @"iPad Mini 3";
+    if ([systInfo isEqualToString:@"iPad4,9"])      return @"iPad Mini 3";
+    
+    if ([systInfo isEqualToString:@"iPad5,1"])      return @"iPad Mini 4";
+    if ([systInfo isEqualToString:@"iPad5,2"])      return @"iPad Mini 4";
+    if ([systInfo isEqualToString:@"iPad5,3"])      return @"iPad Air 2";
+    if ([systInfo isEqualToString:@"iPad5,4"])      return @"iPad Air 2";
+    
+    if ([systInfo isEqualToString:@"iPad6,7"])      return @"iPad Pro";
+    if ([systInfo isEqualToString:@"iPad6,8"])      return @"iPad Pro";
+    
+    if ([systInfo isEqualToString:@"i386"])         return @"iPhone Simulator";
+    if ([systInfo isEqualToString:@"x86_64"])       return @"iPhone Simulator";
+    
+    return systInfo;
+}
+
++ (UIDeviceModelType)jmo_deviceModelType
+{
     NSString *modelName = [self jmo_modelName];
 
-    if ([modelName isEqualToString:UIDeviceModelSimulator]) {
-        return UIDeviceModelTypeSimulator;
-    }
-    else if ([modelName rangeOfString:@"iPhone"].location != NSNotFound) {
+    if ([modelName rangeOfString:@"iPhone"].location != NSNotFound) {
         return UIDeviceModelTypeiPhone;
-    }
-    else if ([modelName rangeOfString:@"iPod"].location != NSNotFound) {
+        
+    } else if ([modelName rangeOfString:@"iPod"].location != NSNotFound) {
         return UIDeviceModelTypeiPod;
-    }
-    else if ([modelName rangeOfString:@"iPad"].location != NSNotFound) {
+        
+    } else if ([modelName rangeOfString:@"iPad"].location != NSNotFound) {
         return UIDeviceModelTypeiPad;
     }
     
     return UIDeviceModelTypeSimulator;
-}
-
-+ (JMODevicePowerInfos *)jmo_devicePowerInfos
-{
-    return [JMODevicePowerInfos infosForDeviceModelNamed:[self jmo_modelName]];
 }
 
 @end

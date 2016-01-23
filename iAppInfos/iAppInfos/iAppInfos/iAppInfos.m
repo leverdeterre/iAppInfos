@@ -10,7 +10,6 @@
 
 #import "UIApplication+iAppInfos.h"
 #import "NSDictionary+iAppInfos.h"
-#import "JMODevicePowerInfos.h"
 
 #import "mach/mach.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -134,11 +133,6 @@
 - (UIDeviceModelType)deviceModelType
 {
     return [UIDevice jmo_deviceModelType];
-}
-
-- (JMODevicePowerInfos *)devicePowerInfo
-{
-    return [UIDevice jmo_devicePowerInfos];
 }
 
 - (NSString *)compilationSDK
@@ -282,18 +276,11 @@ vm_size_t memoryUsedByApp(void)
     else if ([key isEqualToString:AppVersionManagerKeyMemoryUseByApp]) {
         unsigned long memoryUseByApp = memoryUsedByApp();
         return @(memoryUseByApp/(1024 * 1024));
-    }
-    else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
+        
+    } else if ([key isEqualToString:AppVersionManagerKeyOperator]) {
         return [self operatorName];
-    }
-    else if ([key isEqualToString:AppVersionManagerKeyGraphicalPerformance]) {
-        JMODevicePowerInfos *graphInfo = [JMODevicePowerInfos infosForDeviceModelNamed:[UIDevice jmo_modelName]];
-        if ([graphInfo hasGoodGraphicPerformance]) {
-            return @"YES";
-        }
-        return  @"NO";
-    }
-    else {
+        
+    } else {
         id obj = [self.customValues objectForKey:key];
         if (nil != obj) {
             return obj;
