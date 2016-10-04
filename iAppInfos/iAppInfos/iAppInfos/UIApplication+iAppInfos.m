@@ -13,7 +13,11 @@
 
 + (NSString *)jmo_iOSSDKVersion
 {
-#if defined(__IPHONE_8_0)
+#if defined(__IPHONE_10_0)
+    return @"SDK10.0 (Xcode8.0)";
+#elif defined(__IPHONE_9_0)
+    return @"SDK9.0 (Xcode7.0)";
+#elif defined(__IPHONE_8_0)
     return @"SDK8.0 (Xcode6.0)";
 #elif defined(__IPHONE_7_1)
     return @"SDK7.1 (Xcode5.1)";

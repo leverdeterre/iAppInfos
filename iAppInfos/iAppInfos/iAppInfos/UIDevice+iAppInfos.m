@@ -48,6 +48,10 @@
     if ([systInfo isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
     if ([systInfo isEqualToString:@"iPhone8,2"])    return @"iPhone 6s+";
     if ([systInfo isEqualToString:@"iPhone8,4"])    return @"iPhone SE";
+    if ([systInfo isEqualToString:@"iPhone9,1"])    return @"iPhone 7";
+    if ([systInfo isEqualToString:@"iPhone9,3"])    return @"iPhone 7";
+    if ([systInfo isEqualToString:@"iPhone9,2"])    return @"iPhone 7+";
+    if ([systInfo isEqualToString:@"iPhone9,4"])    return @"iPhone 7+";
 
     if ([systInfo isEqualToString:@"iPod1,1"])      return @"iPod touch 1G";
     if ([systInfo isEqualToString:@"iPod2,1"])      return @"iPod touch 2G";
@@ -119,6 +123,10 @@
     if ([systInfo isEqualToString:@"iPhone7,2"])    return @"iPhone 6";
     if ([systInfo isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
     if ([systInfo isEqualToString:@"iPhone8,2"])    return @"iPhone 6s+";
+    if ([systInfo isEqualToString:@"iPhone9,1"])    return @"iPhone 7";
+    if ([systInfo isEqualToString:@"iPhone9,3"])    return @"iPhone 7";
+    if ([systInfo isEqualToString:@"iPhone9,2"])    return @"iPhone 7+";
+    if ([systInfo isEqualToString:@"iPhone9,4"])    return @"iPhone 7+";
     
     if ([systInfo isEqualToString:@"iPod1,1"])      return @"iPod touch 1G";
     if ([systInfo isEqualToString:@"iPod2,1"])      return @"iPod touch 2G";

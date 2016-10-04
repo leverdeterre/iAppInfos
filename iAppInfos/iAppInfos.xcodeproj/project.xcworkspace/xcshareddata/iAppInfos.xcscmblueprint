@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "30ED34E3C184EFD29C9C0C1173F73792D60AECB7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "30ED34E3C184EFD29C9C0C1173F73792D60AECB7" : 0,
+    "2DB8CCABDE7A93E3308B640CAAEDE3900BB85093" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CBA42CAF-EF54-400E-80A7-7CD4D46CE682",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "30ED34E3C184EFD29C9C0C1173F73792D60AECB7" : "iAppInfos\/",
+    "2DB8CCABDE7A93E3308B640CAAEDE3900BB85093" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iAppInfos",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iAppInfos\/iAppInfos.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/leverdeterre\/xctool-log2junit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2DB8CCABDE7A93E3308B640CAAEDE3900BB85093"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/leverdeterre\/iAppInfos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "30ED34E3C184EFD29C9C0C1173F73792D60AECB7"
+    }
+  ]
+}
